@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def clean_split_dates(row):
     # Initial date contains the current value for the Date column
     initial_date = str(row['Date'])
@@ -19,5 +20,5 @@ def clean_split_dates(row):
 
 with open("Artworks.csv", "r") as artwork_csv:
     df = pd.read_csv(artwork_csv)
-    df['Date'] = artworks.apply(lambda row: clean_split_dates(row), axis=1)
-    df['Date'].value_counts()
+    no_unkowns_df = df[df['Date'] != "Unknown"]
+    no_unkowns_df.to_csv('Artworks_new.csv', encoding="utf-8-sig")
