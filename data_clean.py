@@ -18,7 +18,18 @@ def clean_split_dates(row):
     return final_date
 
 
-with open("Artworks.csv", "r") as artwork_csv:
+# with open("Artworks.csv", "r") as artwork_csv:
+#     df = pd.read_csv(artwork_csv)
+
+#     df['Date'] = df.apply(lambda row: clean_split_dates(row), axis=1)
+
+#     df['Date'] = df['Date'].str.replace(r'\D', '')
+#     print(df['Date'].value_counts())
+
+#     df.to_csv('Artworks_new.csv', encoding="utf-8-sig")
+
+with open("Artworks_temp.csv") as artwork_csv:
     df = pd.read_csv(artwork_csv)
-    no_unkowns_df = df[df['Date'] != "Unknown"]
-    no_unkowns_df.to_csv('Artworks_new.csv', encoding="utf-8-sig")
+
+    df_clean = df[df['Date'] != "unreplaceable"]
+    df_clean.to_csv('Artworks_working_file.csv', encoding="utf-8-sig")
