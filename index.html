@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
@@ -22,7 +23,8 @@
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
           sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        <svg id="stacked-bar"></svg>
+        <svg id="donut"></svg>
+        <button id="dataUpdateHandler" onclick="updateDonutData()">Expressionism (Fake Update)</button>
       </div>
       <div class="col-sm-9">
         <div id="container" style="position: relative; width: 100%; height: 600px;"></div>
@@ -59,25 +61,30 @@
         element: document.getElementById("container"),
         scope: 'world',
         geographyConfig: {
-            popupOnHover: false,
-            highlightOnHover: false
+          popupOnHover: false,
+          highlightOnHover: false
         },
         fills: {
-        'USA': '#1f77b4',
-        'RUS': '#9467bd',
-        'AUT': '#ff7f0e',
-        defaultFill: '#6e6e6e'
+          'USA': '#1f77b4',
+          'RUS': '#9467bd',
+          'AUT': '#ff7f0e',
+          defaultFill: '#6e6e6e'
         },
         data: {
-        'USA': {fillKey: 'USA'},
-        'RUS': {fillKey: 'RUS'},
-        'AUT': {fillKey: 'PRC'}
+          'USA': {
+            fillKey: 'USA'
+          },
+          'RUS': {
+            fillKey: 'RUS'
+          },
+          'AUT': {
+            fillKey: 'PRC'
+          }
         }
 
       });
 
-      bubble_map.bubbles([
-        {
+      bubble_map.bubbles([{
           radius: 15,
           count: countForEachCountry["(Austrian)"],
           country: 'AUT',
@@ -110,7 +117,7 @@
     //  var symbols= drawMap(artWorkData);
     //}
   </script>
-  <script src="js/demo-stackedbar.js"></script>
+  <script src="js/demo-donut.js"></script>
 </body>
 
 </html>
