@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <meta charset="utf-8">
 <head>
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
@@ -37,10 +38,69 @@
   
           //console.log(countries[1])
         }
+=======
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="js/datamaps.world.min.js"></script>
+
+  <!-- <script src="HelperFunctions.js"></script> -->
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <title>MOMA and Art Movements</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <h1>Post-Impressionism (1855-1901)</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <svg id="stacked-bar"></svg>
+      </div>
+      <div class="col-sm-9">
+        <div id="container" style="position: relative; width: 100%; height: 600px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    //var map = new Datamap({element: document.getElementById('container')});
+    var countries = ['(American)', '(Austrian)', "(Russian)"]
+    var countForEachCountry = {
+      "(American)": 0,
+      '(Austrian)': 0,
+      "(Russian)": 0
+    };
+    //console.log(countForEachCountry["(American)"])
+    //queue()
+    //.defer(d3.csv, "moma.csv")
+    //.defer(d3.json, "us.json")
+    //.await(ready);
+    d3.csv("moma.csv", function (data) {
+      for (let idx in data) {
+        let artWorkData = data[idx];
+        for (let i in countries) {
+          if (artWorkData.Nationality == countries[i]) {
+            countForEachCountry[countries[i]] = countForEachCountry[countries[i]] + 1;
+
+          }
+        }
+
+        //console.log(countries[1])
+      }
+>>>>>>> gary
       var bubble_map = new Datamap({
         element: document.getElementById("container"),
         scope: 'world',
         geographyConfig: {
+<<<<<<< HEAD
             popupOnHover: false,
             highlightOnHover: false
         },
@@ -60,6 +120,32 @@
       
       bubble_map.bubbles([
         {
+=======
+          popupOnHover: false,
+          highlightOnHover: false
+        },
+        fills: {
+          'USA': '#1f77b4',
+          'RUS': '#9467bd',
+          'AUT': '#ff7f0e',
+          defaultFill: '#6e6e6e'
+        },
+        data: {
+          'USA': {
+            fillKey: 'USA'
+          },
+          'RUS': {
+            fillKey: 'RUS'
+          },
+          'AUT': {
+            fillKey: 'PRC'
+          }
+        }
+
+      });
+
+      bubble_map.bubbles([{
+>>>>>>> gary
           radius: 15,
           count: countForEachCountry["(Austrian)"],
           country: 'AUT',
@@ -72,7 +158,11 @@
           country: 'USA',
           centered: 'USA',
           fillKey: 'USA',
+<<<<<<< HEAD
         },{
+=======
+        }, {
+>>>>>>> gary
           radius: 70,
           count: countForEachCountry["(Russian)"],
           centered: 'RUS',
@@ -80,6 +170,7 @@
           fillKey: 'RUS',
         }
       ], {
+<<<<<<< HEAD
         popupTemplate: function(geo, data) {
           console.log(data)
           return '<div class="hoverinfo">Artwork:' + data.count + ' in '  + data.country + ''
@@ -97,4 +188,21 @@
 
   </script>
 </body>
+=======
+        popupTemplate: function (geo, data) {
+          console.log(data)
+          return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.country + ''
+        }
+      });
+    });
+
+    //function ready(error,sd){
+    //  var artWorkData = sd;
+    //  var symbols= drawMap(artWorkData);
+    //}
+  </script>
+  <script src="js/demo-stackedbar.js"></script>
+</body>
+
+>>>>>>> gary
 </html>
