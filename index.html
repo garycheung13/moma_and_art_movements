@@ -3,22 +3,54 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="dist/css/lightbox.min.css">
+
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
   <script src="js/datamaps.world.min.js"></script>
 
   <!-- <script src="HelperFunctions.js"></script> -->
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <style type="text/css">
+    body,html{height: 100%; margin: 0 auto; font-size:14px; color: #222;line-height: 20px; font-family:'Quicksand','Helvetica Neue',Helvetica,Arial,sans-serif; background-color: #f8f8f8;}
+    header{padding: 1em 3em; background-color:#e6e6e6; width: 100%; position: fixed; top: 0; box-shadow: 0px 1.5px 15px #8e8e8e; z-index: 100;}
+    .left{display:inline-block; height: 100vh; overflow-y: scroll; margin: 0 auto; padding: 2em 3em; background-color: #eee;}
+    div.main{width:100%; margin:0 auto; padding-top: 5em;}
+    h1{font-size: 24px;}
+    h2{font-size: 24px;padding-bottom: 0;}
+    h3{font-size: 20px;padding-bottom: 0.4em; padding-top: 1em;}
+    h4{font-size: 16px;padding-bottom: 0.3em; padding-top: 0.4em;}
+    .left img{padding: .7em 0;}
+    </style>
   <title>MOMA and Art Movements</title>
+  
 </head>
 
 <body>
-  <div class="container-fluid">
+  <header>
+      <h1>MOMA and Art Movements</h1> 
+  </header>
+  <div class="container-fluid main">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-3 left">
+        <h1>Impressionism (1872-1892)</h1>
+        <p>Impressionism can be considered the first distinctly modern movement in painting. Developing in Paris in the 1860s, its influence spread throughout Europe and eventually the United States. Its originators were artists who rejected the official, government-sanctioned exhibitions, or salons, and were consequently shunned by powerful academic art institutions. In turning away from the fine finish and detail to which most artists of their day aspired, the Impressionists aimed to capture the momentary, sensory effect of a scene - the impression objects made on the eye in a fleeting instant. To achieve this effect, many Impressionist artists moved from the studio to the streets and countryside, painting en plein air. </p>
+        <h2>Most Important Artworks:</h2>
+        <a href="http://www.theartstory.org/movement-impressionism-artworks.htm#pnt_6" target="_blank"><h3>Vetheuil in the Fog (1879)</h3></a>
+        <p><b>Artist:</b>Claude Monet</p>
+        <p><b>Artwork description & Analysis:</b> In 1878, Monet moved his family to the town of Vetheuil in northern France. They temporarily lived with a wealthy magnate who became Monet's patron. His Vetheuil in the Fog is among his finest works, offering a subtle, albeit distinct impression of a figural form. As was characteristic of many of Monet's paintings, he applied his brush rather quickly to the canvas in order to capture the exact image he wanted before the sunlight shifted or faded away altogether. Monet's emphasis on the fleeting changes in the natural world was a central aspect of his oeuvre that captures the ephemerality of nature and preserves it within the picture plane; thus, the momentary perception is crystallized in the replication of the optical experience of it.</p>
+        <b>Oil on canvas - Musee Marmottan Monet, Paris</b>
+        <a href="pics/vetheuil-in-the-fog-1879.jpg" data-lightbox="example-set" data-title="Vetheuil in the fog 1879"><img src="pics/vetheuil-in-the-fog-1879.jpg" width="100%" ></a>
+
         <h1>Post-Impressionism (1855-1901)</h1>
+        <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
+          between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
+          as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
+
+        <h1>Expressionism (1855-1901)</h1>
         <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
           between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
           as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
@@ -87,21 +119,21 @@
       bubble_map.bubbles([{
           radius: 15,
           count: countForEachCountry["(Austrian)"],
-          country: 'AUT',
+          country: 'Austria',
           centered: 'AUT',
           fillKey: 'AUT'
         },
         {
           radius: 25,
           count: countForEachCountry["(American)"],
-          country: 'USA',
+          country: 'America',
           centered: 'USA',
           fillKey: 'USA',
         }, {
           radius: 70,
           count: countForEachCountry["(Russian)"],
           centered: 'RUS',
-          country: 'USSR',
+          country: 'Russian',
           fillKey: 'RUS',
         }
       ], {
@@ -224,6 +256,8 @@
     //             .attr("width", function(d) {return xscale(d); });
   </script>
   <script src="js/demo-donut.js"></script>
+  <!-- Lightbox -->
+    <script src="dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>
