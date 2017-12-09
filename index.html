@@ -27,12 +27,12 @@
     .left img{padding: .7em 0;}
     </style>
   <title>MOMA and Art Movements</title>
-  
+
 </head>
 
 <body>
   <header>
-      <h1>MOMA and Art Movements</h1> 
+      <h1>MOMA and Art Movements</h1>
   </header>
   <div class="container-fluid main">
     <div class="row">
@@ -50,19 +50,10 @@
         <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
           between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
           as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
-<<<<<<< HEAD
-
-        <h1>Expressionism (1855-1901)</h1>
-        <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
-          between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
-          as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
-        <svg id="stacked-bar"></svg>
-=======
-        <svg id="donut"></svg>
->>>>>>> 8060a502c80ff76f6f3e2a60720f1d3879f8dc22
       </div>
       <div class="col-sm-9">
         <div id="container" style="position: relative; width: 100%; height: 600px;"></div>
+        <svg id="bar-chart"></svg>
       </div>
     </div>
   </div>
@@ -251,7 +242,7 @@
     //     'fill': 'grey',
     //     'font-size': '12px'
     //   });
-    
+
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
