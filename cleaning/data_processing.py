@@ -13,6 +13,10 @@ abstract = artfile.query('1940<=Date<1960')
 pop = artfile.query('1950<=Date<1970')
 minimalism = artfile.query('1960<=Date<=1970')
 photorealism = artfile.query('1970<Date<=2000')
+allera = artfile.query('1865<=Date<=2000')
+
+# print(impressionism['Classification'].value_counts())
+# print(impressionism)
 
 def makeClassifyDict(era):
     result = []
@@ -45,6 +49,7 @@ output['data'].append({'tag':'Abstract','countries':makeCountriesDict(abstract),
 output['data'].append({'tag':'Pop','countries':makeCountriesDict(pop),'classification':makeClassifyDict(pop)})
 output['data'].append({'tag':'Minimalism','countries':makeCountriesDict(minimalism),'classification':makeClassifyDict(minimalism)})
 output['data'].append({'tag':'Photorealism','countries':makeCountriesDict(photorealism),'classification':makeClassifyDict(photorealism)})
+output['data'].append({'tag':'Allera','countries':makeCountriesDict(allera),'classification':makeClassifyDict(allera)})
 
 with open('era_json.json', 'w') as outfile:
      json.dump(output, outfile, sort_keys = True, indent = 4,ensure_ascii = False)

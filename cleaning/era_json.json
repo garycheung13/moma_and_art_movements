@@ -154,19 +154,14 @@
                     "name": "Switzerland"
                 },
                 {
-                    "abbr": "SWE",
-                    "count": 4,
-                    "name": "Sweden"
-                },
-                {
                     "abbr": "POL",
                     "count": 4,
                     "name": "Poland"
                 },
                 {
-                    "abbr": "HUN",
-                    "count": 2,
-                    "name": "Hungary"
+                    "abbr": "SWE",
+                    "count": 4,
+                    "name": "Sweden"
                 },
                 {
                     "abbr": "IRL",
@@ -174,24 +169,24 @@
                     "name": "Ireland"
                 },
                 {
-                    "abbr": "ISR",
-                    "count": 2,
-                    "name": "Israel"
-                },
-                {
                     "abbr": "DNK",
                     "count": 2,
                     "name": "Denmark"
                 },
                 {
+                    "abbr": "ISR",
+                    "count": 2,
+                    "name": "Israel"
+                },
+                {
+                    "abbr": "HUN",
+                    "count": 2,
+                    "name": "Hungary"
+                },
+                {
                     "abbr": "SCT",
                     "count": 1,
                     "name": "Scotland"
-                },
-                {
-                    "abbr": "AUS",
-                    "count": 1,
-                    "name": "Australia"
                 },
                 {
                     "abbr": "CHL",
@@ -207,6 +202,11 @@
                     "abbr": "ARG",
                     "count": 1,
                     "name": "Argentina"
+                },
+                {
+                    "abbr": "AUS",
+                    "count": 1,
+                    "name": "Australia"
                 }
             ],
             "tag": "Impressionism"
@@ -367,14 +367,14 @@
                     "name": "Sweden"
                 },
                 {
-                    "abbr": "LVA",
-                    "count": 5,
-                    "name": "Latvia"
-                },
-                {
                     "abbr": "CAN",
                     "count": 5,
                     "name": "Canada"
+                },
+                {
+                    "abbr": "LVA",
+                    "count": 5,
+                    "name": "Latvia"
                 },
                 {
                     "abbr": "BRA",
@@ -382,19 +382,24 @@
                     "name": "Brazil"
                 },
                 {
-                    "abbr": "DNK",
-                    "count": 4,
-                    "name": "Denmark"
-                },
-                {
                     "abbr": "JPN",
                     "count": 4,
                     "name": "Japan"
                 },
                 {
+                    "abbr": "DNK",
+                    "count": 4,
+                    "name": "Denmark"
+                },
+                {
                     "abbr": "ROU",
                     "count": 3,
                     "name": "Romania"
+                },
+                {
+                    "abbr": "GEO",
+                    "count": 2,
+                    "name": "Georgia"
                 },
                 {
                     "abbr": "ARG",
@@ -407,19 +412,14 @@
                     "name": "Uruguay"
                 },
                 {
-                    "abbr": "GEO",
-                    "count": 2,
-                    "name": "Georgia"
+                    "abbr": "SCT",
+                    "count": 1,
+                    "name": "Scotland"
                 },
                 {
                     "abbr": "PER",
                     "count": 1,
                     "name": "Peru"
-                },
-                {
-                    "abbr": "SCT",
-                    "count": 1,
-                    "name": "Scotland"
                 },
                 {
                     "abbr": "FIN",
@@ -608,14 +608,14 @@
                     "name": "Norway"
                 },
                 {
-                    "abbr": "CUB",
-                    "count": 12,
-                    "name": "Cuba"
-                },
-                {
                     "abbr": "ARG",
                     "count": 12,
                     "name": "Argentina"
+                },
+                {
+                    "abbr": "CUB",
+                    "count": 12,
+                    "name": "Cuba"
                 },
                 {
                     "abbr": "BRA",
@@ -623,14 +623,14 @@
                     "name": "Brazil"
                 },
                 {
-                    "abbr": "SWE",
-                    "count": 10,
-                    "name": "Sweden"
-                },
-                {
                     "abbr": "URY",
                     "count": 10,
                     "name": "Uruguay"
+                },
+                {
+                    "abbr": "SWE",
+                    "count": 10,
+                    "name": "Sweden"
                 },
                 {
                     "abbr": "UKR",
@@ -658,11 +658,6 @@
                     "name": "Georgia"
                 },
                 {
-                    "abbr": "AUS",
-                    "count": 1,
-                    "name": "Australia"
-                },
-                {
                     "abbr": "CHL",
                     "count": 1,
                     "name": "Chile"
@@ -671,6 +666,11 @@
                     "abbr": "CRI",
                     "count": 1,
                     "name": "Costa Rica"
+                },
+                {
+                    "abbr": "AUS",
+                    "count": 1,
+                    "name": "Australia"
                 }
             ],
             "tag": "Bauhaus"
@@ -824,14 +824,14 @@
                     "name": "Costa Rica"
                 },
                 {
-                    "abbr": "POL",
-                    "count": 62,
-                    "name": "Poland"
-                },
-                {
                     "abbr": "ARG",
                     "count": 62,
                     "name": "Argentina"
+                },
+                {
+                    "abbr": "POL",
+                    "count": 62,
+                    "name": "Poland"
                 },
                 {
                     "abbr": "DNK",
@@ -914,19 +914,14 @@
                     "name": "Australia"
                 },
                 {
-                    "abbr": "ISR",
-                    "count": 2,
-                    "name": "Israel"
-                },
-                {
                     "abbr": "SCT",
                     "count": 2,
                     "name": "Scotland"
                 },
                 {
-                    "abbr": "COL",
+                    "abbr": "ISR",
                     "count": 2,
-                    "name": "Colombia"
+                    "name": "Israel"
                 },
                 {
                     "abbr": "GEO",
@@ -934,19 +929,9 @@
                     "name": "Georgia"
                 },
                 {
-                    "abbr": "BOL",
-                    "count": 1,
-                    "name": "Bolivia"
-                },
-                {
-                    "abbr": "ROU",
-                    "count": 1,
-                    "name": "Romania"
-                },
-                {
-                    "abbr": "HRV",
-                    "count": 1,
-                    "name": "Croatia"
+                    "abbr": "COL",
+                    "count": 2,
+                    "name": "Colombia"
                 },
                 {
                     "abbr": "NIC",
@@ -954,9 +939,19 @@
                     "name": "Nicaragua"
                 },
                 {
-                    "abbr": "ECU",
+                    "abbr": "GRC",
                     "count": 1,
-                    "name": "Ecuador"
+                    "name": "Greece"
+                },
+                {
+                    "abbr": "HRV",
+                    "count": 1,
+                    "name": "Croatia"
+                },
+                {
+                    "abbr": "ROU",
+                    "count": 1,
+                    "name": "Romania"
                 },
                 {
                     "abbr": "HTI",
@@ -964,14 +959,19 @@
                     "name": "Haiti"
                 },
                 {
+                    "abbr": "ECU",
+                    "count": 1,
+                    "name": "Ecuador"
+                },
+                {
                     "abbr": "ISL",
                     "count": 1,
                     "name": "Iceland"
                 },
                 {
-                    "abbr": "GRC",
+                    "abbr": "BOL",
                     "count": 1,
-                    "name": "Greece"
+                    "name": "Bolivia"
                 }
             ],
             "tag": "Surrealism"
@@ -1194,14 +1194,14 @@
                     "name": "Argentina"
                 },
                 {
-                    "abbr": "HTI",
-                    "count": 16,
-                    "name": "Haiti"
-                },
-                {
                     "abbr": "COL",
                     "count": 16,
                     "name": "Colombia"
+                },
+                {
+                    "abbr": "HTI",
+                    "count": 16,
+                    "name": "Haiti"
                 },
                 {
                     "abbr": "HUN",
@@ -1214,14 +1214,14 @@
                     "name": "Guatemala"
                 },
                 {
-                    "abbr": "ROU",
-                    "count": 13,
-                    "name": "Romania"
-                },
-                {
                     "abbr": "PER",
                     "count": 13,
                     "name": "Peru"
+                },
+                {
+                    "abbr": "ROU",
+                    "count": 13,
+                    "name": "Romania"
                 },
                 {
                     "abbr": "AUS",
@@ -1239,29 +1239,14 @@
                     "name": "South Korea"
                 },
                 {
-                    "abbr": "URY",
-                    "count": 5,
-                    "name": "Uruguay"
-                },
-                {
                     "abbr": "SRB",
                     "count": 5,
                     "name": "Serbia"
                 },
                 {
-                    "abbr": "NGA",
-                    "count": 4,
-                    "name": "Nigeria"
-                },
-                {
-                    "abbr": "MLI",
-                    "count": 4,
-                    "name": "Mali"
-                },
-                {
-                    "abbr": "MKD",
-                    "count": 4,
-                    "name": "Macedonia, the Former Yugoslav"
+                    "abbr": "URY",
+                    "count": 5,
+                    "name": "Uruguay"
                 },
                 {
                     "abbr": "GRC",
@@ -1269,9 +1254,29 @@
                     "name": "Greece"
                 },
                 {
+                    "abbr": "MLI",
+                    "count": 4,
+                    "name": "Mali"
+                },
+                {
+                    "abbr": "NGA",
+                    "count": 4,
+                    "name": "Nigeria"
+                },
+                {
                     "abbr": "HRV",
                     "count": 4,
                     "name": "Croatia"
+                },
+                {
+                    "abbr": "MKD",
+                    "count": 4,
+                    "name": "Macedonia, the Former Yugoslav"
+                },
+                {
+                    "abbr": "TUR",
+                    "count": 3,
+                    "name": "Turkey"
                 },
                 {
                     "abbr": "SCT",
@@ -1284,19 +1289,9 @@
                     "name": "Iceland"
                 },
                 {
-                    "abbr": "TUR",
-                    "count": 3,
-                    "name": "Turkey"
-                },
-                {
                     "abbr": "NIC",
                     "count": 2,
                     "name": "Nicaragua"
-                },
-                {
-                    "abbr": "PRI",
-                    "count": 1,
-                    "name": "Puerto Rico"
                 },
                 {
                     "abbr": "SVN",
@@ -1304,14 +1299,24 @@
                     "name": "Slovenia"
                 },
                 {
+                    "abbr": "PRI",
+                    "count": 1,
+                    "name": "Puerto Rico"
+                },
+                {
                     "abbr": "TZA",
                     "count": 1,
                     "name": "Tanzania"
                 },
                 {
-                    "abbr": "PRT",
+                    "abbr": "DZA",
                     "count": 1,
-                    "name": "Portugal"
+                    "name": "Algeria"
+                },
+                {
+                    "abbr": "CHN",
+                    "count": 1,
+                    "name": "China"
                 },
                 {
                     "abbr": "IRL",
@@ -1324,6 +1329,16 @@
                     "name": "Costa Rica"
                 },
                 {
+                    "abbr": "ECU",
+                    "count": 1,
+                    "name": "Ecuador"
+                },
+                {
+                    "abbr": "PRT",
+                    "count": 1,
+                    "name": "Portugal"
+                },
+                {
                     "abbr": "LUX",
                     "count": 1,
                     "name": "Luxembourg"
@@ -1332,21 +1347,6 @@
                     "abbr": "BOL",
                     "count": 1,
                     "name": "Bolivia"
-                },
-                {
-                    "abbr": "ECU",
-                    "count": 1,
-                    "name": "Ecuador"
-                },
-                {
-                    "abbr": "CHN",
-                    "count": 1,
-                    "name": "China"
-                },
-                {
-                    "abbr": "DZA",
-                    "count": 1,
-                    "name": "Algeria"
                 }
             ],
             "tag": "Abstract"
@@ -1651,6 +1651,11 @@
                     "name": "Serbia"
                 },
                 {
+                    "abbr": "KOR",
+                    "count": 7,
+                    "name": "South Korea"
+                },
+                {
                     "abbr": "GRC",
                     "count": 7,
                     "name": "Greece"
@@ -1666,9 +1671,9 @@
                     "name": "Norway"
                 },
                 {
-                    "abbr": "KOR",
-                    "count": 7,
-                    "name": "South Korea"
+                    "abbr": "ZWE",
+                    "count": 6,
+                    "name": "Zimbabwe"
                 },
                 {
                     "abbr": "NGA",
@@ -1676,19 +1681,14 @@
                     "name": "Nigeria"
                 },
                 {
-                    "abbr": "ZWE",
-                    "count": 6,
-                    "name": "Zimbabwe"
+                    "abbr": "ROU",
+                    "count": 5,
+                    "name": "Romania"
                 },
                 {
                     "abbr": "ECU",
                     "count": 5,
                     "name": "Ecuador"
-                },
-                {
-                    "abbr": "ROU",
-                    "count": 5,
-                    "name": "Romania"
                 },
                 {
                     "abbr": "ISL",
@@ -1701,14 +1701,9 @@
                     "name": "Iran"
                 },
                 {
-                    "abbr": "PRT",
+                    "abbr": "SVN",
                     "count": 4,
-                    "name": "Portugal"
-                },
-                {
-                    "abbr": "CHN",
-                    "count": 4,
-                    "name": "China"
+                    "name": "Slovenia"
                 },
                 {
                     "abbr": "HTI",
@@ -1721,9 +1716,14 @@
                     "name": "Panama"
                 },
                 {
-                    "abbr": "SVN",
+                    "abbr": "PRT",
                     "count": 4,
-                    "name": "Slovenia"
+                    "name": "Portugal"
+                },
+                {
+                    "abbr": "CHN",
+                    "count": 4,
+                    "name": "China"
                 },
                 {
                     "abbr": "MAR",
@@ -1731,44 +1731,14 @@
                     "name": "Morocco"
                 },
                 {
-                    "abbr": "LUX",
-                    "count": 2,
-                    "name": "Luxembourg"
-                },
-                {
                     "abbr": "BOL",
                     "count": 2,
                     "name": "Bolivia"
                 },
                 {
-                    "abbr": "NIC",
-                    "count": 1,
-                    "name": "Nicaragua"
-                },
-                {
-                    "abbr": "SDN",
-                    "count": 1,
-                    "name": "Sudan"
-                },
-                {
-                    "abbr": "TZA",
-                    "count": 1,
-                    "name": "Tanzania"
-                },
-                {
-                    "abbr": "SCT",
-                    "count": 1,
-                    "name": "Scotland"
-                },
-                {
-                    "abbr": "TWN",
-                    "count": 1,
-                    "name": "Taiwan"
-                },
-                {
-                    "abbr": "ETH",
-                    "count": 1,
-                    "name": "Ethiopia"
+                    "abbr": "LUX",
+                    "count": 2,
+                    "name": "Luxembourg"
                 },
                 {
                     "abbr": "VNM",
@@ -1781,9 +1751,39 @@
                     "name": "Paraguay"
                 },
                 {
+                    "abbr": "SDN",
+                    "count": 1,
+                    "name": "Sudan"
+                },
+                {
                     "abbr": "KWT",
                     "count": 1,
                     "name": "Kuwait"
+                },
+                {
+                    "abbr": "NIC",
+                    "count": 1,
+                    "name": "Nicaragua"
+                },
+                {
+                    "abbr": "SCT",
+                    "count": 1,
+                    "name": "Scotland"
+                },
+                {
+                    "abbr": "ETH",
+                    "count": 1,
+                    "name": "Ethiopia"
+                },
+                {
+                    "abbr": "TZA",
+                    "count": 1,
+                    "name": "Tanzania"
+                },
+                {
+                    "abbr": "TWN",
+                    "count": 1,
+                    "name": "Taiwan"
                 }
             ],
             "tag": "Pop"
@@ -2068,14 +2068,14 @@
                     "name": "Uruguay"
                 },
                 {
-                    "abbr": "ZAF",
-                    "count": 12,
-                    "name": "South Africa"
-                },
-                {
                     "abbr": "PER",
                     "count": 12,
                     "name": "Peru"
+                },
+                {
+                    "abbr": "ZAF",
+                    "count": 12,
+                    "name": "South Africa"
                 },
                 {
                     "abbr": "PRI",
@@ -2093,19 +2093,14 @@
                     "name": "Zimbabwe"
                 },
                 {
-                    "abbr": "ECU",
-                    "count": 5,
-                    "name": "Ecuador"
-                },
-                {
                     "abbr": "SRB",
                     "count": 5,
                     "name": "Serbia"
                 },
                 {
-                    "abbr": "CHN",
-                    "count": 4,
-                    "name": "China"
+                    "abbr": "ECU",
+                    "count": 5,
+                    "name": "Ecuador"
                 },
                 {
                     "abbr": "GRC",
@@ -2118,6 +2113,11 @@
                     "name": "Panama"
                 },
                 {
+                    "abbr": "MLI",
+                    "count": 4,
+                    "name": "Mali"
+                },
+                {
                     "abbr": "ISL",
                     "count": 4,
                     "name": "Iceland"
@@ -2128,19 +2128,9 @@
                     "name": "Iran"
                 },
                 {
-                    "abbr": "MLI",
+                    "abbr": "CHN",
                     "count": 4,
-                    "name": "Mali"
-                },
-                {
-                    "abbr": "NOR",
-                    "count": 3,
-                    "name": "Norway"
-                },
-                {
-                    "abbr": "PRT",
-                    "count": 3,
-                    "name": "Portugal"
+                    "name": "China"
                 },
                 {
                     "abbr": "SVN",
@@ -2148,14 +2138,19 @@
                     "name": "Slovenia"
                 },
                 {
+                    "abbr": "PRT",
+                    "count": 3,
+                    "name": "Portugal"
+                },
+                {
                     "abbr": "NGA",
                     "count": 3,
                     "name": "Nigeria"
                 },
                 {
-                    "abbr": "MAR",
-                    "count": 2,
-                    "name": "Morocco"
+                    "abbr": "NOR",
+                    "count": 3,
+                    "name": "Norway"
                 },
                 {
                     "abbr": "BOL",
@@ -2168,9 +2163,9 @@
                     "name": "Haiti"
                 },
                 {
-                    "abbr": "VNM",
-                    "count": 1,
-                    "name": "Vietnam"
+                    "abbr": "MAR",
+                    "count": 2,
+                    "name": "Morocco"
                 },
                 {
                     "abbr": "TWN",
@@ -2178,24 +2173,9 @@
                     "name": "Taiwan"
                 },
                 {
-                    "abbr": "SDN",
-                    "count": 1,
-                    "name": "Sudan"
-                },
-                {
                     "abbr": "KWT",
                     "count": 1,
                     "name": "Kuwait"
-                },
-                {
-                    "abbr": "LUX",
-                    "count": 1,
-                    "name": "Luxembourg"
-                },
-                {
-                    "abbr": "PRY",
-                    "count": 1,
-                    "name": "Paraguay"
                 },
                 {
                     "abbr": "UKR",
@@ -2203,9 +2183,29 @@
                     "name": "Ukraine"
                 },
                 {
+                    "abbr": "PRY",
+                    "count": 1,
+                    "name": "Paraguay"
+                },
+                {
+                    "abbr": "LUX",
+                    "count": 1,
+                    "name": "Luxembourg"
+                },
+                {
+                    "abbr": "VNM",
+                    "count": 1,
+                    "name": "Vietnam"
+                },
+                {
                     "abbr": "ETH",
                     "count": 1,
                     "name": "Ethiopia"
+                },
+                {
+                    "abbr": "SDN",
+                    "count": 1,
+                    "name": "Sudan"
                 }
             ],
             "tag": "Minimalism"
@@ -2482,14 +2482,14 @@
                     "name": "Iceland"
                 },
                 {
-                    "abbr": "GRC",
-                    "count": 31,
-                    "name": "Greece"
-                },
-                {
                     "abbr": "PER",
                     "count": 31,
                     "name": "Peru"
+                },
+                {
+                    "abbr": "GRC",
+                    "count": 31,
+                    "name": "Greece"
                 },
                 {
                     "abbr": "ROU",
@@ -2547,19 +2547,44 @@
                     "name": "Egypt"
                 },
                 {
-                    "abbr": "TUR",
-                    "count": 7,
-                    "name": "Turkey"
-                },
-                {
                     "abbr": "IRL",
                     "count": 7,
                     "name": "Ireland"
                 },
                 {
+                    "abbr": "TUR",
+                    "count": 7,
+                    "name": "Turkey"
+                },
+                {
                     "abbr": "BIH",
                     "count": 4,
                     "name": "Bosnia"
+                },
+                {
+                    "abbr": "LTU",
+                    "count": 3,
+                    "name": "Lithuania"
+                },
+                {
+                    "abbr": "BHS",
+                    "count": 3,
+                    "name": "Bahamas"
+                },
+                {
+                    "abbr": "COG",
+                    "count": 3,
+                    "name": "Congo"
+                },
+                {
+                    "abbr": "MYS",
+                    "count": 3,
+                    "name": "Malaysia"
+                },
+                {
+                    "abbr": "HTI",
+                    "count": 3,
+                    "name": "Haiti"
                 },
                 {
                     "abbr": "SEN",
@@ -2572,44 +2597,9 @@
                     "name": "Georgia"
                 },
                 {
-                    "abbr": "COG",
-                    "count": 3,
-                    "name": "Congo"
-                },
-                {
-                    "abbr": "LTU",
-                    "count": 3,
-                    "name": "Lithuania"
-                },
-                {
-                    "abbr": "HTI",
-                    "count": 3,
-                    "name": "Haiti"
-                },
-                {
-                    "abbr": "BHS",
-                    "count": 3,
-                    "name": "Bahamas"
-                },
-                {
-                    "abbr": "MYS",
-                    "count": 3,
-                    "name": "Malaysia"
-                },
-                {
-                    "abbr": "TUN",
-                    "count": 2,
-                    "name": "Tunisia"
-                },
-                {
                     "abbr": "EST",
                     "count": 2,
                     "name": "Estonia"
-                },
-                {
-                    "abbr": "NGA",
-                    "count": 2,
-                    "name": "Nigeria"
                 },
                 {
                     "abbr": "TWN",
@@ -2617,14 +2607,19 @@
                     "name": "Taiwan"
                 },
                 {
-                    "abbr": "SVN",
-                    "count": 2,
-                    "name": "Slovenia"
-                },
-                {
                     "abbr": "NAM",
                     "count": 2,
                     "name": "Namibia"
+                },
+                {
+                    "abbr": "NGA",
+                    "count": 2,
+                    "name": "Nigeria"
+                },
+                {
+                    "abbr": "SVN",
+                    "count": 2,
+                    "name": "Slovenia"
                 },
                 {
                     "abbr": "SVK",
@@ -2632,59 +2627,14 @@
                     "name": "Slovakia"
                 },
                 {
+                    "abbr": "TUN",
+                    "count": 2,
+                    "name": "Tunisia"
+                },
+                {
                     "abbr": "CIV",
                     "count": 2,
                     "name": "Ivory Coast"
-                },
-                {
-                    "abbr": "MRT",
-                    "count": 1,
-                    "name": "Mauritania"
-                },
-                {
-                    "abbr": "SDN",
-                    "count": 1,
-                    "name": "Sudan"
-                },
-                {
-                    "abbr": "KAZ",
-                    "count": 1,
-                    "name": "Kazakhstan"
-                },
-                {
-                    "abbr": "NZL",
-                    "count": 1,
-                    "name": "New Zealand"
-                },
-                {
-                    "abbr": "PAK",
-                    "count": 1,
-                    "name": "Pakistan"
-                },
-                {
-                    "abbr": "GHA",
-                    "count": 1,
-                    "name": "Ghana"
-                },
-                {
-                    "abbr": "UGA",
-                    "count": 1,
-                    "name": "Uganda"
-                },
-                {
-                    "abbr": "SGP",
-                    "count": 1,
-                    "name": "Singapore"
-                },
-                {
-                    "abbr": "MAR",
-                    "count": 1,
-                    "name": "Morocco"
-                },
-                {
-                    "abbr": "PRI",
-                    "count": 1,
-                    "name": "Puerto Rico"
                 },
                 {
                     "abbr": "AZE",
@@ -2692,9 +2642,9 @@
                     "name": "Azerbaijan"
                 },
                 {
-                    "abbr": "GUY",
+                    "abbr": "GHA",
                     "count": 1,
-                    "name": "Guyana"
+                    "name": "Ghana"
                 },
                 {
                     "abbr": "MLI",
@@ -2707,9 +2657,44 @@
                     "name": "Palestine"
                 },
                 {
+                    "abbr": "PRI",
+                    "count": 1,
+                    "name": "Puerto Rico"
+                },
+                {
+                    "abbr": "NZL",
+                    "count": 1,
+                    "name": "New Zealand"
+                },
+                {
+                    "abbr": "SGP",
+                    "count": 1,
+                    "name": "Singapore"
+                },
+                {
+                    "abbr": "IRQ",
+                    "count": 1,
+                    "name": "Iraq"
+                },
+                {
+                    "abbr": "UGA",
+                    "count": 1,
+                    "name": "Uganda"
+                },
+                {
+                    "abbr": "MRT",
+                    "count": 1,
+                    "name": "Mauritania"
+                },
+                {
                     "abbr": "SYR",
                     "count": 1,
                     "name": "Syria"
+                },
+                {
+                    "abbr": "PAK",
+                    "count": 1,
+                    "name": "Pakistan"
                 },
                 {
                     "abbr": "PRY",
@@ -2717,12 +2702,640 @@
                     "name": "Paraguay"
                 },
                 {
-                    "abbr": "IRQ",
+                    "abbr": "SDN",
                     "count": 1,
-                    "name": "Iraq"
+                    "name": "Sudan"
+                },
+                {
+                    "abbr": "GUY",
+                    "count": 1,
+                    "name": "Guyana"
+                },
+                {
+                    "abbr": "MAR",
+                    "count": 1,
+                    "name": "Morocco"
+                },
+                {
+                    "abbr": "KAZ",
+                    "count": 1,
+                    "name": "Kazakhstan"
                 }
             ],
             "tag": "Photorealism"
+        },
+        {
+            "classification": [
+                {
+                    "count": 2439,
+                    "name": "Architecture"
+                },
+                {
+                    "count": 3342,
+                    "name": "Mies van der Rohe Archive"
+                },
+                {
+                    "count": 9049,
+                    "name": "Design"
+                },
+                {
+                    "count": 23783,
+                    "name": "Illustrated Book"
+                },
+                {
+                    "count": 24617,
+                    "name": "Print"
+                },
+                {
+                    "count": 9412,
+                    "name": "Drawing"
+                },
+                {
+                    "count": 1547,
+                    "name": "Film"
+                },
+                {
+                    "count": 910,
+                    "name": "Multiple"
+                },
+                {
+                    "count": 514,
+                    "name": "Periodical"
+                },
+                {
+                    "count": 4,
+                    "name": "Photography Research/Reference"
+                },
+                {
+                    "count": 25373,
+                    "name": "Photograph"
+                },
+                {
+                    "count": 2136,
+                    "name": "Painting"
+                },
+                {
+                    "count": 163,
+                    "name": "(not assigned)"
+                },
+                {
+                    "count": 175,
+                    "name": "Installation"
+                },
+                {
+                    "count": 1,
+                    "name": "Product Design"
+                },
+                {
+                    "count": 144,
+                    "name": "Media"
+                },
+                {
+                    "count": 1516,
+                    "name": "Sculpture"
+                },
+                {
+                    "count": 1,
+                    "name": "Software"
+                },
+                {
+                    "count": 20,
+                    "name": "Textile"
+                },
+                {
+                    "count": 1876,
+                    "name": "Video"
+                },
+                {
+                    "count": 236,
+                    "name": "Work on Paper"
+                },
+                {
+                    "count": 254,
+                    "name": "Audio"
+                },
+                {
+                    "count": 17,
+                    "name": "Performance"
+                },
+                {
+                    "count": 48,
+                    "name": "Ephemera"
+                },
+                {
+                    "count": 7,
+                    "name": "Collage"
+                },
+                {
+                    "count": 2,
+                    "name": "Film (object)"
+                },
+                {
+                    "count": 726,
+                    "name": "Frank Lloyd Wright Archive"
+                },
+                {
+                    "count": 1,
+                    "name": "Graphic Design"
+                },
+                {
+                    "count": 1,
+                    "name": "Furniture and Interiors"
+                }
+            ],
+            "countries": [
+                {
+                    "abbr": "USA",
+                    "count": 49869,
+                    "name": "United States"
+                },
+                {
+                    "abbr": "FRA",
+                    "count": 21891,
+                    "name": "France"
+                },
+                {
+                    "abbr": "DEU",
+                    "count": 8348,
+                    "name": "Germany"
+                },
+                {
+                    "abbr": "GBR",
+                    "count": 4303,
+                    "name": "United Kingdom"
+                },
+                {
+                    "abbr": "ESP",
+                    "count": 2725,
+                    "name": "Spain"
+                },
+                {
+                    "abbr": "ITA",
+                    "count": 2670,
+                    "name": "Italy"
+                },
+                {
+                    "abbr": "JPN",
+                    "count": 2246,
+                    "name": "Japan"
+                },
+                {
+                    "abbr": "CHE",
+                    "count": 1912,
+                    "name": "Switzerland"
+                },
+                {
+                    "abbr": "RUS",
+                    "count": 1812,
+                    "name": "Russian Federation"
+                },
+                {
+                    "abbr": "NLD",
+                    "count": 1419,
+                    "name": "Netherlands"
+                },
+                {
+                    "abbr": "BEL",
+                    "count": 1237,
+                    "name": "Belgium"
+                },
+                {
+                    "abbr": "MEX",
+                    "count": 1129,
+                    "name": "Mexico"
+                },
+                {
+                    "abbr": "AUT",
+                    "count": 878,
+                    "name": "Austria"
+                },
+                {
+                    "abbr": "CZE",
+                    "count": 718,
+                    "name": "Czech Republic"
+                },
+                {
+                    "abbr": "ARG",
+                    "count": 657,
+                    "name": "Argentina"
+                },
+                {
+                    "abbr": "BRA",
+                    "count": 657,
+                    "name": "Brazil"
+                },
+                {
+                    "abbr": "CAN",
+                    "count": 642,
+                    "name": "Canada"
+                },
+                {
+                    "abbr": "CHL",
+                    "count": 505,
+                    "name": "Chile"
+                },
+                {
+                    "abbr": "POL",
+                    "count": 457,
+                    "name": "Poland"
+                },
+                {
+                    "abbr": "DNK",
+                    "count": 413,
+                    "name": "Denmark"
+                },
+                {
+                    "abbr": "COL",
+                    "count": 406,
+                    "name": "Colombia"
+                },
+                {
+                    "abbr": "VEN",
+                    "count": 395,
+                    "name": "Venezuela"
+                },
+                {
+                    "abbr": "ISR",
+                    "count": 304,
+                    "name": "Israel"
+                },
+                {
+                    "abbr": "SWE",
+                    "count": 248,
+                    "name": "Sweden"
+                },
+                {
+                    "abbr": "AUS",
+                    "count": 229,
+                    "name": "Australia"
+                },
+                {
+                    "abbr": "FIN",
+                    "count": 191,
+                    "name": "Finland"
+                },
+                {
+                    "abbr": "CUB",
+                    "count": 187,
+                    "name": "Cuba"
+                },
+                {
+                    "abbr": "ZAF",
+                    "count": 166,
+                    "name": "South Africa"
+                },
+                {
+                    "abbr": "MKD",
+                    "count": 160,
+                    "name": "Macedonia, the Former Yugoslav"
+                },
+                {
+                    "abbr": "HRV",
+                    "count": 134,
+                    "name": "Croatia"
+                },
+                {
+                    "abbr": "HUN",
+                    "count": 132,
+                    "name": "Hungary"
+                },
+                {
+                    "abbr": "NOR",
+                    "count": 120,
+                    "name": "Norway"
+                },
+                {
+                    "abbr": "PRT",
+                    "count": 108,
+                    "name": "Portugal"
+                },
+                {
+                    "abbr": "PER",
+                    "count": 92,
+                    "name": "Peru"
+                },
+                {
+                    "abbr": "UKR",
+                    "count": 83,
+                    "name": "Ukraine"
+                },
+                {
+                    "abbr": "CHN",
+                    "count": 80,
+                    "name": "China"
+                },
+                {
+                    "abbr": "LVA",
+                    "count": 70,
+                    "name": "Latvia"
+                },
+                {
+                    "abbr": "GTM",
+                    "count": 68,
+                    "name": "Guatemala"
+                },
+                {
+                    "abbr": "IND",
+                    "count": 66,
+                    "name": "India"
+                },
+                {
+                    "abbr": "ROU",
+                    "count": 65,
+                    "name": "Romania"
+                },
+                {
+                    "abbr": "CRI",
+                    "count": 64,
+                    "name": "Costa Rica"
+                },
+                {
+                    "abbr": "URY",
+                    "count": 53,
+                    "name": "Uruguay"
+                },
+                {
+                    "abbr": "ISL",
+                    "count": 41,
+                    "name": "Iceland"
+                },
+                {
+                    "abbr": "GRC",
+                    "count": 40,
+                    "name": "Greece"
+                },
+                {
+                    "abbr": "KOR",
+                    "count": 34,
+                    "name": "South Korea"
+                },
+                {
+                    "abbr": "TUR",
+                    "count": 31,
+                    "name": "Turkey"
+                },
+                {
+                    "abbr": "LUX",
+                    "count": 22,
+                    "name": "Luxembourg"
+                },
+                {
+                    "abbr": "HTI",
+                    "count": 21,
+                    "name": "Haiti"
+                },
+                {
+                    "abbr": "SCT",
+                    "count": 19,
+                    "name": "Scotland"
+                },
+                {
+                    "abbr": "IRL",
+                    "count": 19,
+                    "name": "Ireland"
+                },
+                {
+                    "abbr": "IRN",
+                    "count": 16,
+                    "name": "Iran"
+                },
+                {
+                    "abbr": "PRI",
+                    "count": 14,
+                    "name": "Puerto Rico"
+                },
+                {
+                    "abbr": "THA",
+                    "count": 11,
+                    "name": "Thailand"
+                },
+                {
+                    "abbr": "SRB",
+                    "count": 10,
+                    "name": "Serbia"
+                },
+                {
+                    "abbr": "NGA",
+                    "count": 9,
+                    "name": "Nigeria"
+                },
+                {
+                    "abbr": "MLI",
+                    "count": 9,
+                    "name": "Mali"
+                },
+                {
+                    "abbr": "KHM",
+                    "count": 8,
+                    "name": "Cambodia"
+                },
+                {
+                    "abbr": "GEO",
+                    "count": 7,
+                    "name": "Georgia"
+                },
+                {
+                    "abbr": "EGY",
+                    "count": 7,
+                    "name": "Egypt"
+                },
+                {
+                    "abbr": "SVN",
+                    "count": 6,
+                    "name": "Slovenia"
+                },
+                {
+                    "abbr": "ZWE",
+                    "count": 6,
+                    "name": "Zimbabwe"
+                },
+                {
+                    "abbr": "ECU",
+                    "count": 6,
+                    "name": "Ecuador"
+                },
+                {
+                    "abbr": "BIH",
+                    "count": 4,
+                    "name": "Bosnia"
+                },
+                {
+                    "abbr": "PAN",
+                    "count": 4,
+                    "name": "Panama"
+                },
+                {
+                    "abbr": "BOL",
+                    "count": 4,
+                    "name": "Bolivia"
+                },
+                {
+                    "abbr": "MAR",
+                    "count": 3,
+                    "name": "Morocco"
+                },
+                {
+                    "abbr": "MYS",
+                    "count": 3,
+                    "name": "Malaysia"
+                },
+                {
+                    "abbr": "BGR",
+                    "count": 3,
+                    "name": "Bulgaria"
+                },
+                {
+                    "abbr": "LTU",
+                    "count": 3,
+                    "name": "Lithuania"
+                },
+                {
+                    "abbr": "SEN",
+                    "count": 3,
+                    "name": "Senegal"
+                },
+                {
+                    "abbr": "COG",
+                    "count": 3,
+                    "name": "Congo"
+                },
+                {
+                    "abbr": "BHS",
+                    "count": 3,
+                    "name": "Bahamas"
+                },
+                {
+                    "abbr": "TWN",
+                    "count": 3,
+                    "name": "Taiwan"
+                },
+                {
+                    "abbr": "CIV",
+                    "count": 2,
+                    "name": "Ivory Coast"
+                },
+                {
+                    "abbr": "TUN",
+                    "count": 2,
+                    "name": "Tunisia"
+                },
+                {
+                    "abbr": "EST",
+                    "count": 2,
+                    "name": "Estonia"
+                },
+                {
+                    "abbr": "NIC",
+                    "count": 2,
+                    "name": "Nicaragua"
+                },
+                {
+                    "abbr": "SDN",
+                    "count": 2,
+                    "name": "Sudan"
+                },
+                {
+                    "abbr": "PRY",
+                    "count": 2,
+                    "name": "Paraguay"
+                },
+                {
+                    "abbr": "NAM",
+                    "count": 2,
+                    "name": "Namibia"
+                },
+                {
+                    "abbr": "SVK",
+                    "count": 2,
+                    "name": "Slovakia"
+                },
+                {
+                    "abbr": "AZE",
+                    "count": 1,
+                    "name": "Azerbaijan"
+                },
+                {
+                    "abbr": "GHA",
+                    "count": 1,
+                    "name": "Ghana"
+                },
+                {
+                    "abbr": "SGP",
+                    "count": 1,
+                    "name": "Singapore"
+                },
+                {
+                    "abbr": "TZA",
+                    "count": 1,
+                    "name": "Tanzania"
+                },
+                {
+                    "abbr": "IRQ",
+                    "count": 1,
+                    "name": "Iraq"
+                },
+                {
+                    "abbr": "PAK",
+                    "count": 1,
+                    "name": "Pakistan"
+                },
+                {
+                    "abbr": "KWT",
+                    "count": 1,
+                    "name": "Kuwait"
+                },
+                {
+                    "abbr": "ETH",
+                    "count": 1,
+                    "name": "Ethiopia"
+                },
+                {
+                    "abbr": "DZA",
+                    "count": 1,
+                    "name": "Algeria"
+                },
+                {
+                    "abbr": "VNM",
+                    "count": 1,
+                    "name": "Vietnam"
+                },
+                {
+                    "abbr": "SYR",
+                    "count": 1,
+                    "name": "Syria"
+                },
+                {
+                    "abbr": "GUY",
+                    "count": 1,
+                    "name": "Guyana"
+                },
+                {
+                    "abbr": "UGA",
+                    "count": 1,
+                    "name": "Uganda"
+                },
+                {
+                    "abbr": "MRT",
+                    "count": 1,
+                    "name": "Mauritania"
+                },
+                {
+                    "abbr": "NZL",
+                    "count": 1,
+                    "name": "New Zealand"
+                },
+                {
+                    "abbr": "KAZ",
+                    "count": 1,
+                    "name": "Kazakhstan"
+                },
+                {
+                    "abbr": "PSE",
+                    "count": 1,
+                    "name": "Palestine"
+                }
+            ],
+            "tag": "Allera"
         }
     ],
     "name": "summary"

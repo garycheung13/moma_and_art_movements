@@ -2,21 +2,125 @@ const barChart = (function () {
     let width = 900;
     let height = 500;
     let chartAreaHeight = height - 50;
-    let chartAreaWidth = width - 100;
+    let chartAreaWidth = width - 230;
     const sample = {
-        "classification": [{
-                "Name": "Architecture",
-                "count": 315
+        "classification": [
+            {
+                "count": 2439,
+                "name": "Architecture"
             },
             {
-                "Name": "Painting",
-                "count": 30
+                "count": 3342,
+                "name": "Mies van der Rohe Archive"
             },
             {
-                "Name": "Drawing",
-                "count": 303
-            }
-        ]
+                "count": 9049,
+                "name": "Design"
+            },
+            {
+                "count": 23783,
+                "name": "Illustrated Book"
+            },
+            {
+                "count": 24617,
+                "name": "Print"
+            },
+            {
+                "count": 9412,
+                "name": "Drawing"
+            },
+            {
+                "count": 1547,
+                "name": "Film"
+            },
+            {
+                "count": 910,
+                "name": "Multiple"
+            },
+            {
+                "count": 514,
+                "name": "Periodical"
+            },
+            {
+                "count": 4,
+                "name": "Photography Research/Reference"
+            },
+            {
+                "count": 25373,
+                "name": "Photograph"
+            },
+            {
+                "count": 2136,
+                "name": "Painting"
+            },
+            {
+                "count": 163,
+                "name": "(not assigned)"
+            },
+            {
+                "count": 175,
+                "name": "Installation"
+            },
+            {
+                "count": 1,
+                "name": "Product Design"
+            },
+            {
+                "count": 144,
+                "name": "Media"
+            },
+            {
+                "count": 1516,
+                "name": "Sculpture"
+            },
+            {
+                "count": 1,
+                "name": "Software"
+            },
+            {
+                "count": 20,
+                "name": "Textile"
+            },
+            {
+                "count": 1876,
+                "name": "Video"
+            },
+            {
+                "count": 236,
+                "name": "Work on Paper"
+            },
+            {
+                "count": 254,
+                "name": "Audio"
+            },
+            {
+                "count": 17,
+                "name": "Performance"
+            },
+            {
+                "count": 48,
+                "name": "Ephemera"
+            },
+            {
+                "count": 7,
+                "name": "Collage"
+            },
+            {
+                "count": 2,
+                "name": "Film (object)"
+            },
+            {
+                "count": 726,
+                "name": "Frank Lloyd Wright Archive"
+            },
+            {
+                "count": 1,
+                "name": "Graphic Design"
+            },
+            {
+                "count": 1,
+                "name": "Furniture and Interiors"
+            }]
     }
 
     //create the chart area
@@ -53,7 +157,7 @@ const barChart = (function () {
             return (i * chartAreaHeight / sample['classification'].length) + 10;
         })
         .text(function (d) {
-            return d.Name;
+            return d.name;
         });
 
 
