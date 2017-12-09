@@ -1,21 +1,21 @@
 {
   "tag":"Impressionism",
   "countries":
-  [{"Name":"United States",
-    "ABBR":"USA",
+  [{"name":"United States",
+    "abbr":"USA",
     "count":325,
     "classification":[]
     },
-    {"Name":"United Kindom",
-      "ABBR":"GBR",
+    {"name":"United Kindom",
+      "abbr":"GBR",
       "count":30,
       "classification":[]
       }
   ],
   "classification":[
-    {"Name":"Architecture",
-    "Count":315},
-    {"Name":"Painting",
-      "Count":300}
+    {"name":"Architecture",
+    "count":315},
+    {"name":"Painting",
+      "count":300}
   ]
 }
