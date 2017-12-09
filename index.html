@@ -245,6 +245,8 @@
 
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
+
+
   function drawChart() {
     var container = document.getElementById('timebar');
     var chart = new google.visualization.Timeline(container);
@@ -270,10 +272,27 @@ dataTable.addRows([
       tooltip: {isHtml: true}
     };
 
+    chart.draw(dataTable, options)
+    
+    google.visualization.events.addListener(chart, 'select', selectHandler)
+    function selectHandler() {
+        var selection = chart.getSelection()
+        alert('I am an alert');
+}
 
-
-    chart.draw(dataTable, options);
   }
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <!-- <div id="example2.2" style="height: 180px;"></div> -->
