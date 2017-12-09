@@ -14,8 +14,8 @@
   ],
   "classification":[
     {"Name":"Architecture",
-    "Count":315},
+    "count":315},
     {"Name":"Painting",
-      "Count":300}
+      "count":300}
   ]
 }
