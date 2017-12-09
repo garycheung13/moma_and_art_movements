@@ -44,15 +44,15 @@ const barChart = (function () {
 
     //add text
     let text = d3.select('#bar-chart')
-      .selectAll('text')
+        .selectAll('text')
         .data(sample['classification'])
         .enter().append("text")
         .attr("class", "text")
         .attr("x", 0)
-        .attr("y", function(d, i){
+        .attr("y", function (d, i) {
             return (i * chartAreaHeight / sample['classification'].length) + 10;
         })
-        .text(function(d){
+        .text(function (d) {
             return d.Name;
         });
 
@@ -75,10 +75,43 @@ const barChart = (function () {
     //create axis
     let xAxis = d3.svg.axis();
     xAxis.orient('bottom')
+        .ticks(10)
         .scale(xScale);
 
     chart.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0,450)")
         .call(xAxis);
+
+    return {
+        update: function () {
+            const exampleData = [{
+                    "Name": "Architecture",
+                    "count": 15
+                },
+                {
+                    "Name": "Painting",
+                    "count": 250
+                },
+                {
+                    "Name": "Drawing",
+                    "count": 500
+                }
+            ];
+
+            xScale.domain([0, d3.max(exampleData, function(d){
+                return d.count;
+            })])
+            //transition axis
+            chart.select('.x-axis').transition().call(xAxis);
+
+            //transition bars
+            chart.selectAll('rect')
+                .data(exampleData)
+                .transition()
+                .attr("width", function(d){
+                    return xScale(d.count);
+                })
+        }
+    }
 })();
