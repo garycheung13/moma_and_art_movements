@@ -27,12 +27,10 @@
     .left img{padding: .7em 0;}
     </style>
   <title>MOMA and Art Movements</title>
-  
 </head>
 
 <body>
   <header>
-      <h1>MOMA and Art Movements</h1> 
   </header>
   <div class="container-fluid main">
     <div class="row">
@@ -50,6 +48,7 @@
         <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
           between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
           as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
+<<<<<<< HEAD
 
         <h1>Expressionism (1855-1901)</h1>
         <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
@@ -57,6 +56,8 @@
           as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
         <svg id="stacked-bar"></svg>
         <svg id="donut"></svg>
+=======
+>>>>>>> master
       </div>
       <div class="col-sm-9">
         <div id="container" style="position: relative; width: 100%; height: 600px;"></div>
@@ -248,7 +249,6 @@
     //     'fill': 'grey',
     //     'font-size': '12px'
     //   });
-    
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
@@ -260,14 +260,7 @@
     dataTable.addColumn({ type: 'string', role: 'tooltip','p':{'html':true}});
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
-    dataTable.addRows([
       [ 'Art Movements','Impressionism & Post-Impressionism',"Impressionism & Post-Impressionism <br> 1865-1914 <br> Duration: 49 years", new Date(1865,0,0), new Date(1914,0,0) ],
-      [ 'Art Movements', 'Cubism', '1907-1922',new Date(1907,null,null),  new Date(1922,null,null) ],
-      [ 'Art Movements', 'Bauhaus','1919-1933',  new Date(1919,0,0),  new Date(1933,0,0) ],
-      [ 'Art Movements', 'Abstract Expressionism','1940-1950',  new Date(1940,0,0),  new Date(1950,0,0)],
-      [ 'Art Movements', 'Pop Art','1950-1970',  new Date(1950,0,0),  new Date(1970,0,0)],
-      [ 'Art Movements', 'Minimalism','1960-1970',  new Date(1960,0,0),  new Date(1970,0,0)],
-      [ 'Art Movements', 'Photorealism','1971-2000',  new Date(1970,0,0),  new Date(2000,0,0)]]);
 
     var options = {
 
