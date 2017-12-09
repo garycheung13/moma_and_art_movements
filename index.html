@@ -12,6 +12,9 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
   <script src="js/datamaps.world.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
 
   <!-- <script src="HelperFunctions.js"></script> -->
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -27,10 +30,12 @@
     .left img{padding: .7em 0;}
     </style>
   <title>MOMA and Art Movements</title>
+
 </head>
 
 <body>
   <header>
+      <h1>MOMA and Art Movements</h1>
   </header>
   <div class="container-fluid main">
     <div class="row">
@@ -48,7 +53,6 @@
         <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
           between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
           as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
-<<<<<<< HEAD
 
         <h1>Expressionism (1855-1901)</h1>
         <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
@@ -56,11 +60,11 @@
           as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
         <svg id="stacked-bar"></svg>
         <svg id="donut"></svg>
-=======
->>>>>>> master
+
       </div>
       <div class="col-sm-9">
         <div id="container" style="position: relative; width: 100%; height: 600px;"></div>
+        <svg id="bar-chart"></svg>
       </div>
     </div>
   </div>
@@ -69,29 +73,20 @@
 
   <script type="text/javascript">
     //var map = new Datamap({element: document.getElementById('container')});
-    var countries = ['(American)', '(Austrian)', "(Russian)"]
+    //var countryName = []
+    var movementTag = []
+    var dataForEachCountry=[]
+    var dataForAllCountries=[]
     var countForEachCountry = {
       "(American)": 0,
       '(Austrian)': 0,
       "(Russian)": 0
     };
     //console.log(countForEachCountry["(American)"])
-    //queue()
-    //.defer(d3.csv, "moma.csv")
-    //.defer(d3.json, "us.json")
-    //.await(ready);
-    d3.csv("moma.csv", function (data) {
-      for (let idx in data) {
-        let artWorkData = data[idx];
-        for (let i in countries) {
-          if (artWorkData.Nationality == countries[i]) {
-            countForEachCountry[countries[i]] = countForEachCountry[countries[i]] + 1;
 
-          }
-        }
 
-        //console.log(countries[1])
-      }
+    d3.json("cleaning/mock-data.json", function (dataAll) {
+      //console.log(dataAll.data.length)
       var bubble_map = new Datamap({
         element: document.getElementById("container"),
         scope: 'world',
@@ -119,30 +114,77 @@
 
       });
 
-      bubble_map.bubbles([{
-          radius: 15,
-          count: countForEachCountry["(Austrian)"],
-          country: 'Austria',
-          centered: 'AUT',
-          fillKey: 'AUT'
-        },
-        {
-          radius: 25,
-          count: countForEachCountry["(American)"],
-          country: 'America',
-          centered: 'USA',
-          fillKey: 'USA',
-        }, {
-          radius: 70,
-          count: countForEachCountry["(Russian)"],
-          centered: 'RUS',
-          country: 'Russian',
-          fillKey: 'RUS',
+      var countAll =[]
+      var countRange=[]
+
+      for (let idx in dataAll.data) {
+        let movement = dataAll.data[idx];
+        movementTag.push(movement);
+        var bubblesArray = [];
+        for (let i in movement.countries) {
+          let country = movement.countries[i]
+          let count = country.count
+          let countryName = country.name
+          let centered = country.abbr
+
+          countAll.push(count)
+          console.log(countAll)
+          countRange.min=d3.min(countAll)
+          countRange.max=d3.max(countAll)
+          console.log(countRange)
+
+          var radiusScale=d3.scale.linear()
+          .domain([countRange.min,countRange.max])
+          .range([0,70])
+
+          var bubblesDict = {};
+          bubblesDict.radius=radiusScale(count);
+          bubblesDict.count=count;
+          bubblesDict.countryName=countryName;
+          bubblesDict.centered=centered;
+          bubblesArray.push(bubblesDict);
+
+
+        //   var bubblesArray=[{          
+        //   radius: 50,
+        //   count: countForEachCountry["(American)"],
+        //   countryName: 'America',
+        //   centered: 'AUT',
+        //   //fillKey: 'AUT'
+        // },
+        // {
+        //   radius: 25,
+        //   count: countForEachCountry["(American)"],
+        //   countryName: 'America',
+        //   centered: 'USA',
+        //   //fillKey: 'USA',
+        // }, {
+        //   radius: 70,
+        //   count: countForEachCountry["(Russian)"],
+        //   centered: 'RUS',
+        //   countryName: 'Russian',
+        //   //fillKey: 'RUS',
+        // }]
+
+      //    if (artWorkData.Nationality == countries[i]) {
+      //      countForEachCountry[countries[i]] = countForEachCountry[countries[i]] + 1;
+          }
+ 
+          
+
+          //console.log(bubblesArray);
+          
+
         }
-      ], {
+          //console.log(movementTag)
+      
+        
+      //}
+      
+      bubble_map.bubbles(bubblesArray, {
         popupTemplate: function (geo, data) {
-          console.log(data)
-          return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.country + ''
+          //console.log(data)
+          return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
         }
       });
     });
@@ -249,6 +291,7 @@
     //     'fill': 'grey',
     //     'font-size': '12px'
     //   });
+
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
@@ -260,7 +303,15 @@
     dataTable.addColumn({ type: 'string', role: 'tooltip','p':{'html':true}});
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
+dataTable.addRows([
       [ 'Art Movements','Impressionism & Post-Impressionism',"Impressionism & Post-Impressionism <br> 1865-1914 <br> Duration: 49 years", new Date(1865,0,0), new Date(1914,0,0) ],
+      [ 'Art Movements', 'Cubism','Cubism <br> 1907-1922 <br> Duration:15 years',new Date(1907,null,null),  new Date(1922,null,null) ],
+      [ 'Art Movements', 'Bauhaus','Bauhaus <br> 1919-1933 <br> Duration:14 years',new Date(1919,0,0),new Date(1933,0,0) ],
+      [ 'Art Movements', 'Surrealism','Surrealism <br> 1924-1942 <br> Duration:18 years',new Date(1924,0,0),new Date(1942,0,0) ],
+      [ 'Art Movements', 'Abstract Expressionism','Abstract Expressionism <br> 1940-1950 <br> Duration:10 years',  new Date(1940,0,0),  new Date(1960,0,0)],
+      [ 'Art Movements', 'Pop Art','Pop Art <br> 1950-1970 <br> Duration:20 years',  new Date(1950,0,0),  new Date(1970,0,0)],
+      [ 'Art Movements', 'Minimalism','Minimalism<br> 1960-1970 <br> Duration:10 years',  new Date(1960,0,0),  new Date(1970,0,0)],
+      [ 'Art Movements', 'Photorealism','Photorealism <br> 1970-2000 <br> Duration:30 years',  new Date(1970,0,0),  new Date(2000,1,1)]]);
 
     var options = {
 
@@ -275,13 +326,6 @@
 </script>
 
 <!-- <div id="example2.2" style="height: 180px;"></div> -->
-
-
-    // var transit = d3.select("svg").selectAll("rect")
-    //             .data(year)
-    //             .transition()
-    //             .duration(1000)
-    //             .attr("width", function(d) {return xscale(d); });
 <!--   </script> -->
   <script src="js/demo-donut.js"></script>
   <!-- Lightbox -->
