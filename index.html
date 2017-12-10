@@ -13,6 +13,7 @@
   <script src="js/datamaps.world.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="js/eraData.js"></script>
+  <script src="js/descriptiontext.js"></script>
   <script src="http://d3js.org/queue.v1.min.js"></script>
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -41,31 +42,20 @@
   <div class="container-fluid main">
     <div class="row">
       <div class="col-sm-3 left">
-        <h1>Impressionism (1872-1892)</h1>
-        <p>Impressionism can be considered the first distinctly modern movement in painting. Developing in Paris in the 1860s, its influence spread throughout Europe and eventually the United States. Its originators were artists who rejected the official, government-sanctioned exhibitions, or salons, and were consequently shunned by powerful academic art institutions. In turning away from the fine finish and detail to which most artists of their day aspired, the Impressionists aimed to capture the momentary, sensory effect of a scene - the impression objects made on the eye in a fleeting instant. To achieve this effect, many Impressionist artists moved from the studio to the streets and countryside, painting en plein air. </p>
+        <h1 id='movement_name'></h1>
+        <p id='text'></p>
         <h2>Most Important Artworks:</h2>
-        <a href="http://www.theartstory.org/movement-impressionism-artworks.htm#pnt_6" target="_blank"><h3>Vetheuil in the Fog (1879)</h3></a>
-        <p><b>Artist:</b>Claude Monet</p>
-        <p><b>Artwork description & Analysis:</b> In 1878, Monet moved his family to the town of Vetheuil in northern France. They temporarily lived with a wealthy magnate who became Monet's patron. His Vetheuil in the Fog is among his finest works, offering a subtle, albeit distinct impression of a figural form. As was characteristic of many of Monet's paintings, he applied his brush rather quickly to the canvas in order to capture the exact image he wanted before the sunlight shifted or faded away altogether. Monet's emphasis on the fleeting changes in the natural world was a central aspect of his oeuvre that captures the ephemerality of nature and preserves it within the picture plane; thus, the momentary perception is crystallized in the replication of the optical experience of it.</p>
-        <b>Oil on canvas - Musee Marmottan Monet, Paris</b>
-        <a href="pics/vetheuil-in-the-fog-1879.jpg" data-lightbox="example-set" data-title="Vetheuil in the fog 1879"><img src="pics/vetheuil-in-the-fog-1879.jpg" width="100%" ></a>
-
-        <h1>Post-Impressionism (1855-1901)</h1>
-        <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
-          between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
-          as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
-
-        <h1>Expressionism (1855-1901)</h1>
-        <p>Post-Impressionism (also spelled Postimpressionism) is a predominantly French art movement that developed roughly
-          between 1886 and 1905, from the last Impressionist exhibition to the birth of Fauvism. Post-Impressionism emerged
-          as a reaction against Impressionists' concern for the naturalistic depiction of light and colour. </p>
-        <svg id="stacked-bar"></svg>
-        <svg id="donut"></svg>
+        <h3 id='artwork1'></h3>
+        <p><b>Artist:</b><a id="artist1"></a></p>
+        <a   href="pics/vetheuil-in-the-fog-1879.jpg" data-lightbox="example-set" data-title="Vetheuil in the fog 1879"><img id = 'url1' src="" width="100%" ></a>
+        <h3 id='artwork2'></h3>
+        <p><b>Artist:</b><a id="artist2"></a></p>
+        <a  href="pics/vetheuil-in-the-fog-1879.jpg" data-lightbox="example-set" data-title="Vetheuil in the fog 1879"><img id = 'url2'  src="" width="100%" ></a>
 
       </div>
       <div class="col-sm-9">
         <div id="timebar" style="margin-top: 50px;">
-  </div>
+    </div>
         <div id="container" style="width:100%; min-height:450px"></div>
         <svg id="bar-chart"></svg>
       </div>
@@ -279,28 +269,91 @@ dataTable.addRows([
     if (message == '{row:0}'){
       barChart.update(eraData["data"][0].classification);
       drawBubble(eraData["data"][0].countries,"impression");
-
+      document.getElementById('movement_name').innerHTML=description.data[0].information.title
+      document.getElementById('text').innerHTML=description.data[0].information.text
+      document.getElementById('artwork1').innerHTML=description.data[0].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[0].information.features[0].artist
+      document.getElementById('url1').src=description.data[0].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[0].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[0].information.features[1].artist
+      document.getElementById('url2').src=description.data[0].information.features[1].image 
     }else if (message == '{row:1}'){
       barChart.update(eraData["data"][1].classification);
       drawBubble(eraData["data"][1].countries,"cubism");
+      document.getElementById('movement_name').innerHTML=description.data[1].information.title
+      document.getElementById('text').innerHTML=description.data[1].information.text
+      document.getElementById('artwork1').innerHTML=description.data[1].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[1].information.features[0].artist
+      document.getElementById('url1').src=description.data[1].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[1].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[1].information.features[1].artist
+      document.getElementById('url2').src=description.data[1].information.features[1].image 
     }else if (message == '{row:2}'){
       barChart.update(eraData["data"][2].classification);
       drawBubble(eraData["data"][2].countries,"bauhaus");
+      document.getElementById('movement_name').innerHTML=description.data[2].information.title
+      document.getElementById('text').innerHTML=description.data[2].information.text
+      document.getElementById('artwork1').innerHTML=description.data[2].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[2].information.features[0].artist
+      document.getElementById('url1').src=description.data[2].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[2].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[2].information.features[1].artist
+      document.getElementById('url2').src=description.data[2].information.features[1].image 
     }else if (message == '{row:3}'){
       barChart.update(eraData["data"][3].classification);
       drawBubble(eraData["data"][3].countries,"surrealism");
+      document.getElementById('movement_name').innerHTML=description.data[3].information.title
+      document.getElementById('text').innerHTML=description.data[3].information.text
+      document.getElementById('artwork1').innerHTML=description.data[3].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[3].information.features[0].artist
+      document.getElementById('url1').src=description.data[3].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[3].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[3].information.features[1].artist
+      document.getElementById('url2').src=description.data[3].information.features[1].image 
     }else if (message == '{row:4}'){
       barChart.update(eraData["data"][4].classification);
       drawBubble(eraData["data"][4].countries,"abstract");
+      document.getElementById('movement_name').innerHTML=description.data[4].information.title
+      document.getElementById('text').innerHTML=description.data[4].information.text
+      document.getElementById('artwork1').innerHTML=description.data[4].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[4].information.features[0].artist
+      document.getElementById('url1').src=description.data[4].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[4].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[4].information.features[1].artist
+      document.getElementById('url2').src=description.data[4].information.features[1].image 
     }else if (message == '{row:5}'){
       barChart.update(eraData["data"][5].classification);
       drawBubble(eraData["data"][5].countries,"pop");
+      document.getElementById('movement_name').innerHTML=description.data[5].information.title
+      document.getElementById('text').innerHTML=description.data[5].information.text
+      document.getElementById('artwork1').innerHTML=description.data[5].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[5].information.features[0].artist
+      document.getElementById('url1').src=description.data[5].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[5].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[5].information.features[1].artist
+      document.getElementById('url2').src=description.data[5].information.features[1].image 
     }else if (message == '{row:6}'){
       barChart.update(eraData["data"][6].classification);
       drawBubble(eraData["data"][6].countries,"minimalism");
+      document.getElementById('movement_name').innerHTML=description.data[6].information.title
+      document.getElementById('text').innerHTML=description.data[6].information.text
+      document.getElementById('artwork1').innerHTML=description.data[6].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[6].information.features[0].artist
+      document.getElementById('url1').src=description.data[6].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[6].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[6].information.features[1].artist
+      document.getElementById('url2').src=description.data[6].information.features[1].image 
     }else if (message == '{row:7}'){
       barChart.update(eraData["data"][7].classification);
       drawBubble(eraData["data"][7].countries,"photorealism");
+      document.getElementById('movement_name').innerHTML=description.data[7].information.title
+      document.getElementById('text').innerHTML=description.data[7].information.text
+      document.getElementById('artwork1').innerHTML=description.data[7].information.features[0].title
+      document.getElementById('artist1').innerHTML=description.data[7].information.features[0].artist
+      document.getElementById('url1').src=description.data[7].information.features[0].image
+      document.getElementById('artwork2').innerHTML=description.data[7].information.features[1].title
+      document.getElementById('artist2').innerHTML=description.data[7].information.features[1].artist
+      document.getElementById('url2').src=description.data[7].information.features[1].image 
     }
     console.log(message);
     // alert('You selected ' + message);
