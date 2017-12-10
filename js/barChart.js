@@ -1,3 +1,2 @@
-const barChart = (function(){
 
 })();

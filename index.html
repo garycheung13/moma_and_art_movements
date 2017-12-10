@@ -21,7 +21,6 @@
   <style type="text/css">
     body,html{height: 100%; margin: 0 auto; font-size:14px; color: #222;line-height: 20px; font-family:'Quicksand','Helvetica Neue',Helvetica,Arial,sans-serif; background-color: #f8f8f8;}
     header{padding: 1em 3em; background-color:#e6e6e6; width: 100%; position: fixed; top: 0; box-shadow: 0px 1.5px 15px #8e8e8e; z-index: 100;}
-    .left{display:inline-block; height: 100vh; overflow-y: scroll; margin: 0 auto; padding: 2em 3em; background-color: #eee;}
     div.main{width:100%; margin:0 auto; padding-top: 5em;}
     h1{font-size: 24px;}
     h2{font-size: 24px;padding-bottom: 0;}
@@ -63,13 +62,11 @@
 
       </div>
       <div class="col-sm-9">
-        <div id="container" style="position: relative; width: 100%; height: 600px;"></div>
         <svg id="bar-chart"></svg>
       </div>
     </div>
   </div>
-  <div id="timebar" style="margin-left: 100px;">
-  </div>
+
 
   <script type="text/javascript">
     //var map = new Datamap({element: document.getElementById('container')});
@@ -294,10 +291,13 @@
 
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
+
+
   function drawChart() {
     var container = document.getElementById('timebar');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
+
     dataTable.addColumn({ type: 'string', id: 'Term' });
     dataTable.addColumn({ type: 'string', id: 'dummy bar label' });
     dataTable.addColumn({ type: 'string', role: 'tooltip','p':{'html':true}});
@@ -314,20 +314,20 @@ dataTable.addRows([
       [ 'Art Movements', 'Photorealism','Photorealism <br> 1970-2000 <br> Duration:30 years',  new Date(1970,0,0),  new Date(2000,1,1)]]);
 
     var options = {
-
       timeline: {rowLabelStyle: {fontName: 'Helvetica', fontSize: 15 },barLabelStyle: { fontName: 'Garamond', fontSize: 15 } },
       tooltip: {isHtml: true}
     };
 
 
 
-    chart.draw(dataTable, options);
-  }
 </script>
 
 <!-- <div id="example2.2" style="height: 180px;"></div> -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 <!--   </script> -->
-  <script src="js/demo-donut.js"></script>
   <!-- Lightbox -->
     <script src="dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
