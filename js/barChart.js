@@ -148,6 +148,8 @@ const barChart = (function () {
 
     //add text
     let text = d3.select('#bar-chart')
+        .append("g")
+        .attr("class","names")
         .selectAll('text')
         .data(sample['classification'])
         .enter().append("text")
@@ -190,16 +192,16 @@ const barChart = (function () {
     return {
         update: function () {
             const exampleData = [{
-                    "Name": "Architecture",
+                    "name": "Architecture",
                     "count": 15
                 },
                 {
-                    "Name": "Painting",
+                    "name": "Painting",
                     "count": 250
                 },
                 {
-                    "Name": "Drawing",
-                    "count": 500
+                    "name": "Drawing",
+                    "count": 200
                 }
             ];
 
@@ -210,12 +212,27 @@ const barChart = (function () {
             chart.select('.x-axis').transition().call(xAxis);
 
             //transition bars
-            chart.selectAll('rect')
-                .data(exampleData)
-                .transition()
+            let bars = chart.selectAll('rect')
+                .data(exampleData);
+
+            bars.transition()
                 .attr("width", function(d){
                     return xScale(d.count);
-                })
+                });
+            //remove the bars
+            bars.exit().transition().attr("width", 0).remove();
+
+            //transition text
+            let text = d3.select('.names').selectAll('text')
+                .data(exampleData);
+
+            text.transition()
+                .text(function(d){
+                    console.log(d);
+                    return d.name;
+                });
+
+            text.exit().transition().attr("opacity", 0).remove();
         }
     }
 })();
