@@ -13,10 +13,6 @@
   <script src="js/datamaps.world.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="js/eraData.js"></script>
-<<<<<<< HEAD
-
-=======
->>>>>>> 740b4e192c7a7d9f0d183cc2bd990928440106e0
   <script src="http://d3js.org/queue.v1.min.js"></script>
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -27,10 +23,7 @@
     body,html{height: 100%; margin: 0 auto; font-size:14px; color: #222;line-height: 20px; font-family:'Quicksand','Helvetica Neue',Helvetica,Arial,sans-serif; background-color: #f8f8f8;}
     header{padding: 1em 3em; background-color:#e6e6e6; width: 100%; position: fixed; top: 0; box-shadow: 0px 1.5px 15px #8e8e8e; z-index: 100;}
     .left{display:inline-block; max-height: 1000px; overflow-y: scroll; margin: 0 auto; padding: 2em 3em; background-color: #eee;}
-<<<<<<< HEAD
-    div.main{width:100%; margin:0 auto; padding-top: 4em;}
-=======
->>>>>>> 740b4e192c7a7d9f0d183cc2bd990928440106e0
+    div.main{width:100%; margin:0 auto; padding-top: 3.5em;}
     h1{font-size: 24px;}
     h2{font-size: 24px;padding-bottom: 0;}
     h3{font-size: 20px;padding-bottom: 0.4em; padding-top: 1em;}
@@ -73,6 +66,7 @@
       <div class="col-sm-9">
         <div id="timebar" style="margin-top: 50px;">
   </div>
+        <div id="container" style="width:100%; min-height:450px"></div>
         <svg id="bar-chart"></svg>
       </div>
     </div>
@@ -91,6 +85,26 @@
       "(Russian)": 0
     };
 
+    var bubble_map = new Datamap({
+
+    element: document.getElementById("container"),
+    scope: 'world',
+    geographyConfig: {
+      popupOnHover: false,
+      highlightOnHover: false
+    },
+    fills: {
+          // 'USA': '#1f77b4',
+          // 'RUS': '#9467bd',
+          'impression': '#4188EC',
+          'cubism':'#DD433D',
+          'bauhaus':'#F5B240',
+          'surrealism':'#009C60',
+          'abstract':'#AC4BB5',
+          'minimalism':'#FF6E4E',
+          'pop':'#00ADBE',
+          'photorealism':'#9E9C3F',
+          defaultFill: '#d7d7d7'
         }
         // data: {
         //   'USA': {
@@ -103,6 +117,8 @@
         //     fillKey: 'PRC'
         //   }
         // }
+          });
+    function drawBubble(countries,tag){
 
         
 
@@ -123,12 +139,14 @@
         let countryName = country.name
         let centered = country.abbr
         var radiusScale=d3.scale.linear()
+        .domain([1,19000])
         .range([5,100]);
         var bubblesDict = {};
         bubblesDict.radius=radiusScale(count);
         bubblesDict.count=count;
         bubblesDict.countryName=countryName;
         bubblesDict.centered=centered;
+        bubblesDict.fillKey=tag;
         bubblesArray.push(bubblesDict);
 
       }
@@ -257,6 +275,32 @@ dataTable.addRows([
     }
     if (message == '') {
      message = 'nothing';
+    }
+    if (message == '{row:0}'){
+      barChart.update(eraData["data"][0].classification);
+      drawBubble(eraData["data"][0].countries,"impression");
+
+    }else if (message == '{row:1}'){
+      barChart.update(eraData["data"][1].classification);
+      drawBubble(eraData["data"][1].countries,"cubism");
+    }else if (message == '{row:2}'){
+      barChart.update(eraData["data"][2].classification);
+      drawBubble(eraData["data"][2].countries,"bauhaus");
+    }else if (message == '{row:3}'){
+      barChart.update(eraData["data"][3].classification);
+      drawBubble(eraData["data"][3].countries,"surrealism");
+    }else if (message == '{row:4}'){
+      barChart.update(eraData["data"][4].classification);
+      drawBubble(eraData["data"][4].countries,"abstract");
+    }else if (message == '{row:5}'){
+      barChart.update(eraData["data"][5].classification);
+      drawBubble(eraData["data"][5].countries,"pop");
+    }else if (message == '{row:6}'){
+      barChart.update(eraData["data"][6].classification);
+      drawBubble(eraData["data"][6].countries,"minimalism");
+    }else if (message == '{row:7}'){
+      barChart.update(eraData["data"][7].classification);
+      drawBubble(eraData["data"][7].countries,"photorealism");
     }
     console.log(message);
     // alert('You selected ' + message);
