@@ -15,6 +15,9 @@
 <<<<<<< HEAD
   <script src="js/eraData.js"></script>
 =======
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
 >>>>>>> tongyun
 
   <!-- <script src="HelperFunctions.js"></script> -->
@@ -75,7 +78,6 @@
 
   <script type="text/javascript">
     //var map = new Datamap({element: document.getElementById('container')});
-    var countries = ['(American)', '(Austrian)', "(Russian)"]
     //var countryName = []
     var movementTag = []
     var dataForEachCountry=[]
@@ -86,6 +88,7 @@
       "(Russian)": 0
     };
 
+    d3.json("cleaning/era_json.json", function (dataAll) {
       var bubble_map = new Datamap({
         element: document.getElementById("container"),
         scope: 'world',
@@ -113,7 +116,40 @@
 
       });
 
+      var countAll =[]
+      var countRange=[]
+
+      for (let idx in dataAll.data) {
+        let movement = dataAll.data[idx];
+        var bubblesArray = [];
+        for (let i in movement.countries) {
+          let country = movement.countries[i]
+          let count = country.count
+          let countryName = country.name
+          let centered = country.abbr
+
+          countAll.push(count)
+          console.log(countAll)
+          countRange.min=d3.min(countAll)
+          countRange.max=d3.max(countAll)
+          console.log(countRange)
+
+          var radiusScale=d3.scale.linear()
+          .domain([countRange.min,countRange.max])
+          .range([5,100])
+
+          var bubblesDict = {};
+          bubblesDict.radius=radiusScale(count);
+          bubblesDict.count=count;
+          bubblesDict.countryName=countryName;
+          bubblesDict.centered=centered;
+          bubblesArray.push(bubblesDict);
+          }
+
+        }            
+      bubble_map.bubbles(bubblesArray, {
         popupTemplate: function (geo, data) {
+          return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
         }
       });
     });
