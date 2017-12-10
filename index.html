@@ -12,13 +12,15 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
   <script src="js/datamaps.world.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<<<<<<< HEAD
   <script src="js/eraData.js"></script>
+<<<<<<< HEAD
 =======
   <script src="http://d3js.org/queue.v1.min.js"></script>
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
 >>>>>>> tongyun
+=======
+>>>>>>> 781b8fe17943c0b5e96f5a5eb4e0240569be3a50
 
   <!-- <script src="HelperFunctions.js"></script> -->
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -88,8 +90,10 @@
       "(Russian)": 0
     };
 
+
     function drawBubble(countries){
         var bubble_map = new Datamap({
+
         element: document.getElementById("container"),
         scope: 'world',
         geographyConfig: {
@@ -123,26 +127,24 @@
       }
       countRange.min=d3.min(countAll)
       countRange.max=d3.max(countAll)
-      console.log(d3.max(countAll));
 
       var bubblesArray = [];
-        for (let i in countries) {
-          let country = countries[i]
-          let count = country.count
-          let countryName = country.name
-          let centered = country.abbr
-          var radiusScale=d3.scale.linear()
-          .domain([countRange.min,countRange.max])
-          .range([5,100]);
+      for (let i in countries) {
+        let country = countries[i]
+        let count = country.count
+        let countryName = country.name
+        let centered = country.abbr
+        var radiusScale=d3.scale.linear()
+        .domain([countRange.min,countRange.max])
+        .range([5,100]);
+        var bubblesDict = {};
+        bubblesDict.radius=radiusScale(count);
+        bubblesDict.count=count;
+        bubblesDict.countryName=countryName;
+        bubblesDict.centered=centered;
+        bubblesArray.push(bubblesDict);
 
-          var bubblesDict = {};
-          bubblesDict.radius=radiusScale(count);
-          bubblesDict.count=count;
-          bubblesDict.countryName=countryName;
-          bubblesDict.centered=centered;
-          bubblesArray.push(bubblesDict);
-          }
-          
+      }
       bubble_map.bubbles(bubblesArray, {
         popupTemplate: function (geo, data) {
           return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
@@ -289,10 +291,6 @@ console.log(loaded_data);
 </script>
 
 <!-- <div id="example2.2" style="height: 180px;"></div> -->
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 <!--   </script> -->
   <script src="js/barChart.js"></script>
   <!-- Lightbox -->
