@@ -12,10 +12,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
   <script src="js/datamaps.world.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<<<<<<< HEAD
   <script src="js/eraData.js"></script>
-=======
->>>>>>> tongyun
 
   <!-- <script src="HelperFunctions.js"></script> -->
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -86,6 +83,7 @@
       "(Russian)": 0
     };
 
+    d3.json("cleaning/era_json.json", function (dataAll) {
       var bubble_map = new Datamap({
         element: document.getElementById("container"),
         scope: 'world',
@@ -110,10 +108,36 @@
             fillKey: 'PRC'
           }
         }
-
       });
-
+      var countAll =[]
+      var countRange=[]
+      for (let idx in dataAll.data) {
+        let movement = dataAll.data[idx];
+        var bubblesArray = [];
+        for (let i in movement.countries) {
+          let country = movement.countries[i]
+          let count = country.count
+          let countryName = country.name
+          let centered = country.abbr
+          countAll.push(count)
+          console.log(countAll)
+          countRange.min=d3.min(countAll)
+          countRange.max=d3.max(countAll)
+          console.log(countRange)
+          var radiusScale=d3.scale.linear()
+          .domain([countRange.min,countRange.max])
+          .range([5,100])
+          var bubblesDict = {};
+          bubblesDict.radius=radiusScale(count);
+          bubblesDict.count=count;
+          bubblesDict.countryName=countryName;
+          bubblesDict.centered=centered;
+          bubblesArray.push(bubblesDict);
+          }
+        }
+      bubble_map.bubbles(bubblesArray, {
         popupTemplate: function (geo, data) {
+          return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
         }
       });
     });
@@ -187,10 +211,6 @@ console.log(loaded_data);
 </script>
 
 <!-- <div id="example2.2" style="height: 180px;"></div> -->
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 <!--   </script> -->
   <script src="js/barChart.js"></script>
   <!-- Lightbox -->
