@@ -30,6 +30,14 @@
     h3{font-size: 20px;padding-bottom: 0.4em; padding-top: 1em;}
     h4{font-size: 16px;padding-bottom: 0.3em; padding-top: 0.4em;}
     .left img{padding: .7em 0;}
+    .x-axis line {
+      stroke: steelblue;
+    }
+    .x-axis path {
+      stroke: steelblue;
+      fill: none;
+      shape-rendering: crispEdges;
+    }
     </style>
   <title>MOMA and Art Movements</title>
 
@@ -110,7 +118,7 @@
           });
     function drawBubble(countries,tag){
 
-        
+
 
 
       var countAll =[]
@@ -206,7 +214,7 @@
     //       bubblesArray.push(bubblesDict);
     //       }
 
-    //     }            
+    //     }
     //   bubble_map.bubbles(bubblesArray, {
     //     popupTemplate: function (geo, data) {
     //       return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
@@ -276,7 +284,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[0].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[0].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[0].information.features[1].artist
-      document.getElementById('url2').src=description.data[0].information.features[1].image 
+      document.getElementById('url2').src=description.data[0].information.features[1].image
     }else if (message == '{row:1}'){
       barChart.update(eraData["data"][1].classification);
       drawBubble(eraData["data"][1].countries,"cubism");
@@ -287,7 +295,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[1].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[1].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[1].information.features[1].artist
-      document.getElementById('url2').src=description.data[1].information.features[1].image 
+      document.getElementById('url2').src=description.data[1].information.features[1].image
     }else if (message == '{row:2}'){
       barChart.update(eraData["data"][2].classification);
       drawBubble(eraData["data"][2].countries,"bauhaus");
@@ -298,7 +306,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[2].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[2].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[2].information.features[1].artist
-      document.getElementById('url2').src=description.data[2].information.features[1].image 
+      document.getElementById('url2').src=description.data[2].information.features[1].image
     }else if (message == '{row:3}'){
       barChart.update(eraData["data"][3].classification);
       drawBubble(eraData["data"][3].countries,"surrealism");
@@ -309,7 +317,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[3].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[3].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[3].information.features[1].artist
-      document.getElementById('url2').src=description.data[3].information.features[1].image 
+      document.getElementById('url2').src=description.data[3].information.features[1].image
     }else if (message == '{row:4}'){
       barChart.update(eraData["data"][4].classification);
       drawBubble(eraData["data"][4].countries,"abstract");
@@ -320,7 +328,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[4].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[4].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[4].information.features[1].artist
-      document.getElementById('url2').src=description.data[4].information.features[1].image 
+      document.getElementById('url2').src=description.data[4].information.features[1].image
     }else if (message == '{row:5}'){
       barChart.update(eraData["data"][5].classification);
       drawBubble(eraData["data"][5].countries,"pop");
@@ -331,7 +339,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[5].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[5].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[5].information.features[1].artist
-      document.getElementById('url2').src=description.data[5].information.features[1].image 
+      document.getElementById('url2').src=description.data[5].information.features[1].image
     }else if (message == '{row:6}'){
       barChart.update(eraData["data"][6].classification);
       drawBubble(eraData["data"][6].countries,"minimalism");
@@ -342,7 +350,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[6].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[6].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[6].information.features[1].artist
-      document.getElementById('url2').src=description.data[6].information.features[1].image 
+      document.getElementById('url2').src=description.data[6].information.features[1].image
     }else if (message == '{row:7}'){
       barChart.update(eraData["data"][7].classification);
       drawBubble(eraData["data"][7].countries,"photorealism");
@@ -353,7 +361,7 @@ dataTable.addRows([
       document.getElementById('url1').src=description.data[7].information.features[0].image
       document.getElementById('artwork2').innerHTML=description.data[7].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[7].information.features[1].artist
-      document.getElementById('url2').src=description.data[7].information.features[1].image 
+      document.getElementById('url2').src=description.data[7].information.features[1].image
     }
     console.log(message);
     // alert('You selected ' + message);

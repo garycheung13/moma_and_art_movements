@@ -4,8 +4,7 @@ const barChart = (function () {
     let chartAreaHeight = height - 50;
     let chartAreaWidth = width - 230;
     const sample = {
-        "classification": [
-            {
+        "classification": [{
                 "count": 2439,
                 "name": "Architecture"
             },
@@ -120,7 +119,8 @@ const barChart = (function () {
             {
                 "count": 1,
                 "name": "Furniture and Interiors"
-            }]
+            }
+        ]
     }
 
     //create the chart area
@@ -149,7 +149,7 @@ const barChart = (function () {
     //add text
     let text = d3.select('#bar-chart')
         .append("g")
-        .attr("class","names")
+        .attr("class", "names")
         .selectAll('text')
         .data(sample['classification'])
         .enter().append("text")
@@ -166,17 +166,21 @@ const barChart = (function () {
     //making bars
     let bar = chart.selectAll("bar")
         .data(sample['classification'])
-        .enter().append("g")
+        .enter().append("rect")
         .attr("class", "bar")
+        .attr("height", 10) //height of bar
+        .attr("width", function (d) {
+            return xScale(d.count);
+        })
         .attr("transform", function (d, i) {
             return "translate(0," + i * (chartAreaHeight / sample['classification'].length) + ")";
         });
 
-    bar.append("rect")
-        .attr("height", 10) //height of bar
-        .attr("width", function (d) {
-            return xScale(d.count);
-        });
+    // bar.append("rect")
+    //     .attr("height", 10) //height of bar
+    //     .attr("width", function (d) {
+    //         return xScale(d.count);
+    //     });
 
     //create axis
     let xAxis = d3.svg.axis();
@@ -191,31 +195,33 @@ const barChart = (function () {
 
     return {
         update: function (newData) {
-            // const exampleData = [{
-            //         "name": "Architecture",
-            //         "count": 15
-            //     },
-            //     {
-            //         "name": "Painting",
-            //         "count": 250
-            //     },
-            //     {
-            //         "name": "Drawing",
-            //         "count": 200
-            //     }
-            // ];
-            xScale.domain([0, d3.max(newData, function(d){
+            xScale.domain([0, d3.max(newData, function (d) {
                 return d.count;
             })])
+            console.log(newData);
             //transition axis
-            chart.select('.x-axis').transition().call(xAxis);
+            chart.select('.x-axis')
+                .transition()
+                .call(xAxis)
+                .attr("transform", "translate(0," + (newData.length * 16) + ")");
 
             //transition bars
-            let bars = chart.selectAll('rect')
+            let bars = chart.selectAll('.bar')
                 .data(newData);
 
+            bars.enter()
+                .append("rect")
+                .attr("class", "bar");
+
             bars.transition()
-                .attr("width", function(d){
+                .attr("height", 10) //height of bar
+                .attr("width", function (d) {
+                    return xScale(d.count);
+                })
+                .attr("transform", function (d, i) {
+                    return "translate(0," + i * (chartAreaHeight / sample['classification'].length) + ")";
+                })
+                .attr("width", function (d) {
                     return xScale(d.count);
                 });
             //remove the bars
@@ -225,9 +231,15 @@ const barChart = (function () {
             let text = d3.select('.names').selectAll('text')
                 .data(newData);
 
+            text.enter()
+                .append("text");
+
             text.transition()
-                .text(function(d){
-                    console.log(d);
+                .attr("x", 0)
+                .attr("y", function (d, i) {
+                    return (i * chartAreaHeight / sample['classification'].length) + 10;
+                })
+                .text(function (d) {
                     return d.name;
                 });
 
