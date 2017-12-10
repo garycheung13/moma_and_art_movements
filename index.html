@@ -46,7 +46,7 @@
   <div class="container-fluid main">
     <div class="row">
       <div class="col-sm-3 left">
-        <h1>Impressionism (1872-1892)</h1>
+        <h1 id='movement_name'>Impressionism (1872-1892)</h1>
         <p>Impressionism can be considered the first distinctly modern movement in painting. Developing in Paris in the 1860s, its influence spread throughout Europe and eventually the United States. Its originators were artists who rejected the official, government-sanctioned exhibitions, or salons, and were consequently shunned by powerful academic art institutions. In turning away from the fine finish and detail to which most artists of their day aspired, the Impressionists aimed to capture the momentary, sensory effect of a scene - the impression objects made on the eye in a fleeting instant. To achieve this effect, many Impressionist artists moved from the studio to the streets and countryside, painting en plein air. </p>
         <h2>Most Important Artworks:</h2>
         <a href="http://www.theartstory.org/movement-impressionism-artworks.htm#pnt_6" target="_blank"><h3>Vetheuil in the Fog (1879)</h3></a>
@@ -274,8 +274,9 @@ dataTable.addRows([
     if (message == '') {
      message = 'nothing';
     }
-    console.log(message);
-    alert('You selected ' + message);
+    // console.log(message);
+    // alert('You selected ' + message);
+    document.getElementById('movement_name').innerHTML=eraData.data[0].information.title
 }
 }
 

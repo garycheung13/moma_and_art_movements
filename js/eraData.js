@@ -209,7 +209,13 @@ const eraData = {
                     "name": "Australia"
                 }
             ],
-            "tag": "Impressionism"
+            "tag": "Impressionism",
+            "information": {"title": "Impressionism dsiuhwidhwiws& Post-Impressionism(1865-1914)",
+            'text':"Impressionism can be considered the first distinctly modern movement in painting. ",
+            "features":[
+                {"title": "Sunrise (1874)", "artist": "Claude Monet", "image": "url"},
+                {"title": "The Starry Night (1899)", "artist": "Vincent van Gogh", "image": "url"}      
+            ]}
         },
         {
             "classification": [
@@ -433,6 +439,12 @@ const eraData = {
                 }
             ],
             "tag": "Cubism"
+            "information": {"title": "Cubism (1907-1922)",
+            'text':"Cubism is an early-20th-century art movement which brought European painting and sculpture historically forward toward 20th century Modern art.",
+            "features":[
+                {"title": "Les Desmoiselles d'Avignon (1907)", "artist": "Pablo Picasso", "image": "url"},
+                {"title": "Bottle and Fishes (1910-1912)", "artist": "Georges Braque", "image": "url"}
+            ]}
         },
         {
             "classification": [
