@@ -84,55 +84,52 @@
       "(Russian)": 0
     };
 
-    d3.json("cleaning/era_json.json", function (dataAll) {
-      var bubble_map = new Datamap({
+    function drawBubble(countries){
+        var bubble_map = new Datamap({
         element: document.getElementById("container"),
         scope: 'world',
         geographyConfig: {
           popupOnHover: false,
           highlightOnHover: false
-        },
-        fills: {
-          'USA': '#1f77b4',
-          'RUS': '#9467bd',
-          'AUT': '#ff7f0e',
-          defaultFill: '#6e6e6e'
-        },
-        data: {
-          'USA': {
-            fillKey: 'USA'
-          },
-          'RUS': {
-            fillKey: 'RUS'
-          },
-          'AUT': {
-            fillKey: 'PRC'
-          }
         }
+        // fills: {
+        //   'USA': '#1f77b4',
+        //   'RUS': '#9467bd',
+        //   'AUT': '#ff7f0e',
+        //   defaultFill: '#6e6e6e'
+        // },
+        // data: {
+        //   'USA': {
+        //     fillKey: 'USA'
+        //   },
+        //   'RUS': {
+        //     fillKey: 'RUS'
+        //   },
+        //   'AUT': {
+        //     fillKey: 'PRC'
+        //   }
+        // }
 
       });
-
       var countAll =[]
       var countRange=[]
 
-      for (let idx in dataAll.data) {
-        let movement = dataAll.data[idx];
-        var bubblesArray = [];
-        for (let i in movement.countries) {
-          let country = movement.countries[i]
+      for (let i in countries){
+        countAll.push(countries[i].count)
+      }
+      countRange.min=d3.min(countAll)
+      countRange.max=d3.max(countAll)
+      console.log(d3.max(countAll));
+
+      var bubblesArray = [];
+        for (let i in countries) {
+          let country = countries[i]
           let count = country.count
           let countryName = country.name
           let centered = country.abbr
-
-          countAll.push(count)
-          console.log(countAll)
-          countRange.min=d3.min(countAll)
-          countRange.max=d3.max(countAll)
-          console.log(countRange)
-
           var radiusScale=d3.scale.linear()
           .domain([countRange.min,countRange.max])
-          .range([5,100])
+          .range([5,100]);
 
           var bubblesDict = {};
           bubblesDict.radius=radiusScale(count);
@@ -141,14 +138,83 @@
           bubblesDict.centered=centered;
           bubblesArray.push(bubblesDict);
           }
-
-        }            
+          
       bubble_map.bubbles(bubblesArray, {
         popupTemplate: function (geo, data) {
           return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
         }
       });
-    });
+    };
+    d3.json("cleaning/era_json.json", function(dataAll){
+      drawBubble(dataAll.data[1].countries);
+      console.log(dataAll.data[1].countries)
+    })
+
+    // d3.json("cleaning/era_json.json", function (dataAll) {
+    //   var bubble_map = new Datamap({
+    //     element: document.getElementById("container"),
+    //     scope: 'world',
+    //     geographyConfig: {
+    //       popupOnHover: false,
+    //       highlightOnHover: false
+    //     },
+    //     fills: {
+    //       'USA': '#1f77b4',
+    //       'RUS': '#9467bd',
+    //       'AUT': '#ff7f0e',
+    //       defaultFill: '#6e6e6e'
+    //     },
+    //     data: {
+    //       'USA': {
+    //         fillKey: 'USA'
+    //       },
+    //       'RUS': {
+    //         fillKey: 'RUS'
+    //       },
+    //       'AUT': {
+    //         fillKey: 'PRC'
+    //       }
+    //     }
+
+    //   });
+
+    //   var countAll =[]
+    //   var countRange=[]
+
+    //   for (let idx in dataAll.data) {
+    //     let movement = dataAll.data[1];
+    //     var bubblesArray = [];
+    //     for (let i in movement.countries) {
+    //       let country = movement.countries[i]
+    //       let count = country.count
+    //       let countryName = country.name
+    //       let centered = country.abbr
+
+    //       countAll.push(count)
+    //       console.log(countAll)
+    //       countRange.min=d3.min(countAll)
+    //       countRange.max=d3.max(countAll)
+    //       console.log(countRange)
+
+    //       var radiusScale=d3.scale.linear()
+    //       .domain([countRange.min,countRange.max])
+    //       .range([5,100])
+
+    //       var bubblesDict = {};
+    //       bubblesDict.radius=radiusScale(count);
+    //       bubblesDict.count=count;
+    //       bubblesDict.countryName=countryName;
+    //       bubblesDict.centered=centered;
+    //       bubblesArray.push(bubblesDict);
+    //       }
+
+    //     }            
+    //   bubble_map.bubbles(bubblesArray, {
+    //     popupTemplate: function (geo, data) {
+    //       return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
+    //     }
+    //   });
+    // });
 
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
