@@ -190,22 +190,21 @@ const barChart = (function () {
         .call(xAxis);
 
     return {
-        update: function () {
-            const exampleData = [{
-                    "name": "Architecture",
-                    "count": 15
-                },
-                {
-                    "name": "Painting",
-                    "count": 250
-                },
-                {
-                    "name": "Drawing",
-                    "count": 200
-                }
-            ];
-
-            xScale.domain([0, d3.max(exampleData, function(d){
+        update: function (newData) {
+            // const exampleData = [{
+            //         "name": "Architecture",
+            //         "count": 15
+            //     },
+            //     {
+            //         "name": "Painting",
+            //         "count": 250
+            //     },
+            //     {
+            //         "name": "Drawing",
+            //         "count": 200
+            //     }
+            // ];
+            xScale.domain([0, d3.max(newData, function(d){
                 return d.count;
             })])
             //transition axis
@@ -213,7 +212,7 @@ const barChart = (function () {
 
             //transition bars
             let bars = chart.selectAll('rect')
-                .data(exampleData);
+                .data(newData);
 
             bars.transition()
                 .attr("width", function(d){
@@ -224,7 +223,7 @@ const barChart = (function () {
 
             //transition text
             let text = d3.select('.names').selectAll('text')
-                .data(exampleData);
+                .data(newData);
 
             text.transition()
                 .text(function(d){
