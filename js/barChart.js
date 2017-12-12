@@ -205,8 +205,6 @@ const barChart = (function () {
                 'pop':'#00ADBE',
                 'photorealism':'#9E9C3F'
             }
-
-            console.log(barFill[eraName]);
             //sort the data
             newData.sort(function(x, y){
                 return d3.descending(x['count'], y['count']);
