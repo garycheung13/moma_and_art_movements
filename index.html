@@ -21,10 +21,10 @@
   <!-- <script src="HelperFunctions.js"></script> -->
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   <style type="text/css">
-    body,html{height: 100%; margin: 0 auto; font-size:14px; color: #222;line-height: 24px; font-family:'Quicksand','Helvetica Neue',Helvetica,Arial,sans-serif; background-color: #f8f8f8;}
-    header{padding: 1em 3em; background-color:#e6e6e6; width: 100%; position: fixed; top: 0; box-shadow: 0px 1.5px 15px #8e8e8e; z-index: 100;}
-    .left{display:inline-block; max-height: 1000px; overflow-y: scroll; margin: 0 auto; padding: 2em 3em; background-color: #eee;}
-    div.main{width:100%; margin:0 auto; padding-top: 3.5em;}
+    body,html{width: 100%; margin: 0 auto; font-size:14px; color: #222;line-height: 20px; font-family:'Quicksand','Helvetica Neue',Helvetica,Arial,sans-serif; background-color: #f8f8f8;}
+    header{padding: 1em 3em; background-color:white; width: 100%; height:200px; position:fixed; top: 0; box-shadow: 0px 1.5px 15px #EFEFEF; z-index: 100;}
+    .left{display:inline-block; max-height: 1500px; overflow-y: scroll; margin: 0 auto; padding: 2em 3em; background-color: #EFEFEF;}
+    div.main{width:100%; margin:0 auto; padding-top: 200px;}
     h1{font-size: 24px;}
     h2{font-size: 24px;padding-bottom: 0;}
     h3{font-size: 20px;padding-bottom: 0.4em; padding-top: 1em;}
@@ -34,12 +34,25 @@
       stroke: steelblue;
     }
     .x-axis path {
-      stroke: steelblue;
+      stroke: none;
       fill: none;
       shape-rendering: crispEdges;
     }
     .bar {
       fill: steelblue;
+    }
+    .art-descrip{
+      height: 1550px;
+      overflow-y: scroll;
+    }
+    .art-descrip h2{
+      font-size:20px;
+    }
+    .art-descrip h1{
+      line-height: 30px;
+    }
+    .art-descrip a{
+
     }
     </style>
   <title>MOMA and Art Movements</title>
@@ -48,25 +61,27 @@
 
 <body>
   <header>
-      <h1>MOMA and Art Movements</h1>
+      <h1>Pick an art movement to get started</h1>
+      <div class="row">
+        <div class="col-sm-12" style="width:100%;z-index:1000">
+          <div id="timebar" style="width:100%"></div>
+        </div>
+      </div>
   </header>
-  <div class="container-fluid main">
+  <div class="container main">
     <div class="row">
-      <div class="col-sm-3 left">
-        <h1 id='movement_name'></h1>
-        <p id='text'></p>
-        <h2>Most Important Artworks:</h2>
+      <div class="col-sm-3 left art-descrip">
+        <h1 id='movement_name'>Artwork Description</h1>
+        <p id='text'>Select an era to see intepretation of data</p>
+        <h2></h2>
         <h3 id='artwork1'></h3>
-        <p><b>Artist:</b><a id="artist1"></a></p>
-        <a   href="pics/vetheuil-in-the-fog-1879.jpg" data-lightbox="example-set" data-title="Vetheuil in the fog 1879"><img id = 'url1' src="" width="100%" ></a>
+        <p><b></b><a id="artist1"></a></p>
+        <a id='lightbox1' href="" data-lightbox="example-set" data-title=""><img id = 'url1' src="" width="100%" ></a>
         <h3 id='artwork2'></h3>
-        <p><b>Artist:</b><a id="artist2"></a></p>
-        <a  href="pics/vetheuil-in-the-fog-1879.jpg" data-lightbox="example-set" data-title="Vetheuil in the fog 1879"><img id = 'url2'  src="" width="100%" ></a>
-
+        <p><b></b><a id="artist2"></a></p>
+        <a id='lightbox2' href="" data-lightbox="example-set-2" data-title=""><img id = 'url2'  src="" width="100%" ></a>
       </div>
       <div class="col-sm-9">
-        <div id="timebar" style="margin-top: 50px;">
-    </div>
         <div id="container" style="width:100%; min-height:450px"></div>
         <svg id="bar-chart"></svg>
       </div>
@@ -97,6 +112,7 @@
     fills: {
           // 'USA': '#1f77b4',
           // 'RUS': '#9467bd',
+          'overall': 'steelblue',
           'impression': '#4188EC',
           'cubism':'#DD433D',
           'bauhaus':'#F5B240',
@@ -141,7 +157,7 @@
         let centered = country.abbr
         var radiusScale=d3.scale.linear()
         .domain([1,19000])
-        .range([5,100]);
+        .range([3,160]);
         var bubblesDict = {};
         bubblesDict.radius=radiusScale(count);
         bubblesDict.count=count;
@@ -158,72 +174,6 @@
         }
       });
     };
-
-    // d3.json("cleaning/era_json.json", function (dataAll) {
-    //   var bubble_map = new Datamap({
-    //     element: document.getElementById("container"),
-    //     scope: 'world',
-    //     geographyConfig: {
-    //       popupOnHover: false,
-    //       highlightOnHover: false
-    //     },
-    //     fills: {
-    //       'USA': '#1f77b4',
-    //       'RUS': '#9467bd',
-    //       'AUT': '#ff7f0e',
-    //       defaultFill: '#6e6e6e'
-    //     },
-    //     data: {
-    //       'USA': {
-    //         fillKey: 'USA'
-    //       },
-    //       'RUS': {
-    //         fillKey: 'RUS'
-    //       },
-    //       'AUT': {
-    //         fillKey: 'PRC'
-    //       }
-    //     }
-
-    //   });
-
-    //   var countAll =[]
-    //   var countRange=[]
-
-    //   for (let idx in dataAll.data) {
-    //     let movement = dataAll.data[1];
-    //     var bubblesArray = [];
-    //     for (let i in movement.countries) {
-    //       let country = movement.countries[i]
-    //       let count = country.count
-    //       let countryName = country.name
-    //       let centered = country.abbr
-
-    //       countAll.push(count)
-    //       console.log(countAll)
-    //       countRange.min=d3.min(countAll)
-    //       countRange.max=d3.max(countAll)
-    //       console.log(countRange)
-
-    //       var radiusScale=d3.scale.linear()
-    //       .domain([countRange.min,countRange.max])
-    //       .range([5,100])
-
-    //       var bubblesDict = {};
-    //       bubblesDict.radius=radiusScale(count);
-    //       bubblesDict.count=count;
-    //       bubblesDict.countryName=countryName;
-    //       bubblesDict.centered=centered;
-    //       bubblesArray.push(bubblesDict);
-    //       }
-
-    //     }
-    //   bubble_map.bubbles(bubblesArray, {
-    //     popupTemplate: function (geo, data) {
-    //       return '<div class="hoverinfo">Artwork:' + data.count + ' in ' + data.countryName + ''
-    //     }
-    //   });
-    // });
 
   google.charts.load("current", {packages:["timeline"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -250,14 +200,21 @@ dataTable.addRows([
       [ 'Art Movements', 'Photorealism','Photorealism <br> 1970-2000 <br> Duration:30 years',  new Date(1970,0,0),  new Date(2000,1,1)]]);
 
     var options = {
-      height:170,
-      width:1030,
+      // height:170,
+      // width:1030,
       timeline: {rowLabelStyle: {fontName: 'Helvetica', fontSize: 15 },barLabelStyle: { fontName: 'Garamond', fontSize: 15 } },
-      tooltip: {isHtml: true}
+      tooltip: {isHtml: true},
+      backgroundColor:'white',
+      // vAxis: { gridlines: { count: 4} },
+      avoidOverlappingGridLines: false,
+
+
+      // colors: ['#E91E63', '#9C27B0', '#673AB7','#3F51B5','#607D8B','#03A9F4','#009688','#00BCD4'],
+
     };
 
     chart.draw(dataTable, options);
-
+    // drawBubble(eraData["data"][8].countries,"overall");
     google.visualization.events.addListener(chart, 'select', myClickHandler);
 
     function myClickHandler(){
@@ -278,108 +235,132 @@ dataTable.addRows([
      message = 'nothing';
     }
     if (message == '{row:0}'){
-      barChart.update(eraData["data"][0].classification);
+      barChart.update(eraData["data"][0].classification, "impression");
       drawBubble(eraData["data"][0].countries,"impression");
       document.getElementById('movement_name').innerHTML=description.data[0].information.title
       document.getElementById('text').innerHTML=description.data[0].information.text
       document.getElementById('artwork1').innerHTML=description.data[0].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[0].information.features[0].artist
       document.getElementById('url1').src=description.data[0].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[0].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[0].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[0].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[0].information.features[1].artist
       document.getElementById('url2').src=description.data[0].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[0].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[0].information.features[1].title)
+
     }else if (message == '{row:1}'){
-      barChart.update(eraData["data"][1].classification);
+      barChart.update(eraData["data"][1].classification, "cubism");
       drawBubble(eraData["data"][1].countries,"cubism");
       document.getElementById('movement_name').innerHTML=description.data[1].information.title
       document.getElementById('text').innerHTML=description.data[1].information.text
       document.getElementById('artwork1').innerHTML=description.data[1].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[1].information.features[0].artist
       document.getElementById('url1').src=description.data[1].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[1].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[1].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[1].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[1].information.features[1].artist
       document.getElementById('url2').src=description.data[1].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[1].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[1].information.features[1].title)
     }else if (message == '{row:2}'){
-      barChart.update(eraData["data"][2].classification);
+      barChart.update(eraData["data"][2].classification, "bauhaus");
       drawBubble(eraData["data"][2].countries,"bauhaus");
       document.getElementById('movement_name').innerHTML=description.data[2].information.title
       document.getElementById('text').innerHTML=description.data[2].information.text
       document.getElementById('artwork1').innerHTML=description.data[2].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[2].information.features[0].artist
       document.getElementById('url1').src=description.data[2].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[2].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[2].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[2].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[2].information.features[1].artist
       document.getElementById('url2').src=description.data[2].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[2].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[2].information.features[1].title)
     }else if (message == '{row:3}'){
-      barChart.update(eraData["data"][3].classification);
+      barChart.update(eraData["data"][3].classification, "surrealism");
       drawBubble(eraData["data"][3].countries,"surrealism");
       document.getElementById('movement_name').innerHTML=description.data[3].information.title
       document.getElementById('text').innerHTML=description.data[3].information.text
       document.getElementById('artwork1').innerHTML=description.data[3].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[3].information.features[0].artist
       document.getElementById('url1').src=description.data[3].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[3].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[3].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[3].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[3].information.features[1].artist
       document.getElementById('url2').src=description.data[3].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[3].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[3].information.features[1].title)
     }else if (message == '{row:4}'){
-      barChart.update(eraData["data"][4].classification);
+      barChart.update(eraData["data"][4].classification, "abstract");
       drawBubble(eraData["data"][4].countries,"abstract");
       document.getElementById('movement_name').innerHTML=description.data[4].information.title
       document.getElementById('text').innerHTML=description.data[4].information.text
       document.getElementById('artwork1').innerHTML=description.data[4].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[4].information.features[0].artist
       document.getElementById('url1').src=description.data[4].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[4].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[4].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[4].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[4].information.features[1].artist
       document.getElementById('url2').src=description.data[4].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[4].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[4].information.features[1].title)
     }else if (message == '{row:5}'){
-      barChart.update(eraData["data"][5].classification);
+      barChart.update(eraData["data"][5].classification, "pop");
       drawBubble(eraData["data"][5].countries,"pop");
       document.getElementById('movement_name').innerHTML=description.data[5].information.title
       document.getElementById('text').innerHTML=description.data[5].information.text
       document.getElementById('artwork1').innerHTML=description.data[5].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[5].information.features[0].artist
       document.getElementById('url1').src=description.data[5].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[5].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[5].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[5].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[5].information.features[1].artist
       document.getElementById('url2').src=description.data[5].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[5].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[5].information.features[1].title)
     }else if (message == '{row:6}'){
-      barChart.update(eraData["data"][6].classification);
+      barChart.update(eraData["data"][6].classification, "minimalism");
       drawBubble(eraData["data"][6].countries,"minimalism");
       document.getElementById('movement_name').innerHTML=description.data[6].information.title
       document.getElementById('text').innerHTML=description.data[6].information.text
       document.getElementById('artwork1').innerHTML=description.data[6].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[6].information.features[0].artist
       document.getElementById('url1').src=description.data[6].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[6].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[6].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[6].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[6].information.features[1].artist
       document.getElementById('url2').src=description.data[6].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[6].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[6].information.features[1].title)
     }else if (message == '{row:7}'){
-      barChart.update(eraData["data"][7].classification);
+      barChart.update(eraData["data"][7].classification, "photorealism");
       drawBubble(eraData["data"][7].countries,"photorealism");
       document.getElementById('movement_name').innerHTML=description.data[7].information.title
       document.getElementById('text').innerHTML=description.data[7].information.text
       document.getElementById('artwork1').innerHTML=description.data[7].information.features[0].title
       document.getElementById('artist1').innerHTML=description.data[7].information.features[0].artist
       document.getElementById('url1').src=description.data[7].information.features[0].image
+      document.getElementById('lightbox1').href=description.data[7].information.features[0].image
+      document.getElementById('lightbox1').setAttribute('data-title',description.data[7].information.features[0].title)
       document.getElementById('artwork2').innerHTML=description.data[7].information.features[1].title
       document.getElementById('artist2').innerHTML=description.data[7].information.features[1].artist
       document.getElementById('url2').src=description.data[7].information.features[1].image
+      document.getElementById('lightbox2').href=description.data[7].information.features[1].image
+      document.getElementById('lightbox2').setAttribute('data-title',description.data[7].information.features[1].title)
+
     }
     console.log(message);
     // alert('You selected ' + message);
 }
 }
-
-let loaded_data;
-
-let load_json = d3.json('cleaning/era_json.json', function(d){
-  loaded_json = d;
-});
-
-console.log(loaded_data);
-
-
 </script>
 
 <!-- <div id="example2.2" style="height: 180px;"></div> -->

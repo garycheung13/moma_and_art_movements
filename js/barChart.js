@@ -1,130 +1,131 @@
 const barChart = (function () {
     let width = 900;
-    let height = 500;
+    let height = 900;
     let chartAreaHeight = height - 50;
     let chartAreaWidth = width - 230;
+    const AXIS_OFFET = 500;
     const sample = {
         "classification": [{
-                "count": 2439,
+                "count": 0,
                 "name": "Architecture"
             },
             {
-                "count": 3342,
+                "count": 0,
                 "name": "Mies van der Rohe Archive"
             },
             {
-                "count": 9049,
+                "count": 0,
                 "name": "Design"
             },
             {
-                "count": 23783,
+                "count": 0,
                 "name": "Illustrated Book"
             },
             {
-                "count": 24617,
+                "count": 0,
                 "name": "Print"
             },
             {
-                "count": 9412,
+                "count": 0,
                 "name": "Drawing"
             },
             {
-                "count": 1547,
+                "count": 0,
                 "name": "Film"
             },
             {
-                "count": 910,
+                "count": 0,
                 "name": "Multiple"
             },
             {
-                "count": 514,
+                "count": 0,
                 "name": "Periodical"
             },
             {
-                "count": 4,
+                "count": 0,
                 "name": "Photography Research/Reference"
             },
             {
-                "count": 25373,
+                "count": 0,
                 "name": "Photograph"
             },
             {
-                "count": 2136,
+                "count": 0,
                 "name": "Painting"
             },
             {
-                "count": 163,
+                "count": 0,
                 "name": "(not assigned)"
             },
             {
-                "count": 175,
+                "count": 0,
                 "name": "Installation"
             },
             {
-                "count": 1,
+                "count": 0,
                 "name": "Product Design"
             },
             {
-                "count": 144,
+                "count": 0,
                 "name": "Media"
             },
             {
-                "count": 1516,
+                "count": 0,
                 "name": "Sculpture"
             },
             {
-                "count": 1,
+                "count": 0,
                 "name": "Software"
             },
             {
-                "count": 20,
+                "count": 0,
                 "name": "Textile"
             },
             {
-                "count": 1876,
+                "count": 0,
                 "name": "Video"
             },
             {
-                "count": 236,
+                "count": 0,
                 "name": "Work on Paper"
             },
             {
-                "count": 254,
+                "count": 0,
                 "name": "Audio"
             },
             {
-                "count": 17,
+                "count": 0,
                 "name": "Performance"
             },
             {
-                "count": 48,
+                "count": 0,
                 "name": "Ephemera"
             },
             {
-                "count": 7,
+                "count": 0,
                 "name": "Collage"
             },
             {
-                "count": 2,
+                "count": 0,
                 "name": "Film (object)"
             },
             {
-                "count": 726,
+                "count": 0,
                 "name": "Frank Lloyd Wright Archive"
             },
             {
-                "count": 1,
+                "count": 0,
                 "name": "Graphic Design"
             },
             {
-                "count": 1,
+                "count": 0,
                 "name": "Furniture and Interiors"
             }
         ]
     }
 
     //sort the data
-    sample['classification'].sort(function(x, y){
+    sample['classification'].sort(function (x, y) {
         return d3.descending(x['count'], y['count']);
     })
 
@@ -166,7 +167,8 @@ const barChart = (function () {
         })
         .text(function (d) {
             return d.name;
-        });
+        })
+        .style("display", "none");
 
 
     //making bars
@@ -174,7 +176,7 @@ const barChart = (function () {
         .data(sample['classification'])
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("height", 10) //height of bar
+        .attr("height", 50) //height of bar
         .attr("width", function (d) {
             return xScale(d.count);
         })
@@ -193,22 +195,51 @@ const barChart = (function () {
         .attr("transform", "translate(0,-10)")
         .call(xAxis);
 
+    //tooltip
+    var tooltip = d3.select("#bar-chart")
+        .append("g")
+        .attr("class", "tooltip")
+        .style("display", "none");
+
+    tooltip.append("rect")
+        .attr("width", 80)
+        .attr("height", 25)
+        .attr("fill", "grey")
+        .style("opacity", 1);
+
+    tooltip.append("text")
+        .attr("x", 15)
+        .attr("dy", "1.2em")
+        .style("text-anchor", "start")
+        .attr("font-size", "12px")
+        .attr("font-weight", "bold");
+
     return {
-        update: function (newData) {
+        update: function (newData, eraName) {
+            const barFill = {
+                'impression': '#4188EC',
+                'cubism': '#DD433D',
+                'bauhaus': '#F5B240',
+                'surrealism': '#009C60',
+                'abstract': '#AC4BB5',
+                'minimalism': '#FF6E4E',
+                'pop': '#00ADBE',
+                'photorealism': '#9E9C3F'
+            }
             //sort the data
-            newData.sort(function(x, y){
+            newData.sort(function (x, y) {
                 return d3.descending(x['count'], y['count']);
             });
-            // console.log(newData);
             xScale.domain([0, d3.max(newData, function (d) {
                 return d.count;
-            })])
+            }) + AXIS_OFFET])
+
             //transition axis
             chart.select('.x-axis')
                 .transition()
                 .call(xAxis)
                 .attr("transform", "translate(0,-10)");
-                // .attr("transform", "translate(0," + (newData.length * 16) + ")");
+            // .attr("transform", "translate(0," + (newData.length * 16) + ")");
 
             //transition bars
             let bars = chart.selectAll('.bar')
@@ -219,10 +250,8 @@ const barChart = (function () {
                 .attr("class", "bar");
 
             bars.transition()
-                .attr("height", 10) //height of bar
-                .attr("width", function (d) {
-                    return xScale(d.count);
-                })
+                .attr("height", 20) //height of bar
+                .style("fill", barFill[eraName])
                 .attr("transform", function (d, i) {
                     return "translate(0," + i * (chartAreaHeight / sample['classification'].length) + ")";
                 })
@@ -246,9 +275,32 @@ const barChart = (function () {
                 })
                 .text(function (d) {
                     return d.name;
-                });
+                })
+                .style("display", "block");
 
             text.exit().transition().attr("opacity", 0).remove();
+
+            d3.selectAll(".bar")
+                .on("mouseover", function () {
+                    d3.selectAll(".bar")
+                        .attr("opacity", "0.4");
+                    d3.select(this)
+                        .attr("opacity", "1");
+                    tooltip.style("display", null);
+                })
+                .on("mouseout", function () {
+                    tooltip.style("display", "none");
+                    d3.selectAll(".bar")
+                        .attr("opacity", "1")
+                })
+                .on("mousemove", function (d) {
+                    let currentBar = d3.select(this).datum();
+                    tooltip.attr("transform", "translate(" + (d3.event.offsetX + 20) + "," + d3.event.offsetY + ")");
+                    tooltip.select("text")
+                        .text(currentBar.count)
+                        .style("fill", "white")
+                        .style("font-size", "15");
+                });
         }
     }
 })();
