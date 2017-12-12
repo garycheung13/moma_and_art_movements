@@ -135,7 +135,7 @@ const barChart = (function () {
         .append("g")
         .attr("width", chartAreaWidth)
         .attr("height", chartAreaHeight)
-        .attr("transform", "translate(" + (width - chartAreaWidth) + ",0)");
+        .attr("transform", "translate(" + (width - chartAreaWidth) + ",50)");
 
     //create the scale functions
     let max = d3.max(sample['classification'], function (d) {
@@ -155,6 +155,7 @@ const barChart = (function () {
     let text = d3.select('#bar-chart')
         .append("g")
         .attr("class", "names")
+        .attr("transform", "translate(0, 50)")
         .selectAll('text')
         .data(sample['classification'])
         .enter().append("text")
@@ -181,21 +182,15 @@ const barChart = (function () {
             return "translate(0," + i * (chartAreaHeight / sample['classification'].length) + ")";
         });
 
-    // bar.append("rect")
-    //     .attr("height", 10) //height of bar
-    //     .attr("width", function (d) {
-    //         return xScale(d.count);
-    //     });
-
     //create axis
     let xAxis = d3.svg.axis();
-    xAxis.orient('bottom')
+    xAxis.orient('top')
         .ticks(10)
         .scale(xScale);
 
     chart.append("g")
         .attr("class", "x-axis")
-        .attr("transform", "translate(0,450)")
+        .attr("transform", "translate(0,-10)")
         .call(xAxis);
 
     return {
@@ -204,7 +199,7 @@ const barChart = (function () {
             newData.sort(function(x, y){
                 return d3.descending(x['count'], y['count']);
             });
-
+            // console.log(newData);
             xScale.domain([0, d3.max(newData, function (d) {
                 return d.count;
             })])
@@ -212,7 +207,8 @@ const barChart = (function () {
             chart.select('.x-axis')
                 .transition()
                 .call(xAxis)
-                .attr("transform", "translate(0," + (newData.length * 16) + ")");
+                .attr("transform", "translate(0,-10)");
+                // .attr("transform", "translate(0," + (newData.length * 16) + ")");
 
             //transition bars
             let bars = chart.selectAll('.bar')
