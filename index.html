@@ -24,7 +24,7 @@
     body,html{width: 100%; margin: 0 auto; font-size:14px; color: #222;line-height: 20px; font-family:'Quicksand','Helvetica Neue',Helvetica,Arial,sans-serif; background-color: #f8f8f8;}
     header{padding: 1em 3em; background-color:white; width: 100%; height:200px; position:fixed; top: 0; box-shadow: 0px 1.5px 15px #EFEFEF; z-index: 100;}
     .left{display:inline-block; max-height: 1500px; overflow-y: scroll; margin: 0 auto; padding: 2em 3em; background-color: #EFEFEF;}
-    div.main{width:100%; margin:0 auto; padding-top: 250px;}
+    div.main{width:100%; margin:0 auto; padding-top: 200px;}
     .left img{padding: .7em 0;}
     .x-axis line {
       stroke: steelblue;
@@ -73,17 +73,19 @@
   <div class="container main">
     <div class="row">
       <div class="col-sm-3 left art-descrip">
-        <h1 id='movement_name'>Artwork Description</h1>
-        <p id='text'>Select an era to see intepretation of data</p>
+        <h1 id='movement_name'>Discover Guide:</h1>
+        <p id='text'></p>
         <h2></h2>
-        <h3 id='artwork1'></h3>
-        <p><a id="artist1"></a></p>
+        <h3 id='artwork1'>1. Click on the movement and see the changes in the largest bubble.</h3>
+        <p><a id="artist1">America replaced Europe as the center of the art world. And Abstract Expressionism is often considered the first artistic movement to shift the centre of Western art from Europe to the US, and more precisely New York.(Wikipedia) Click on “Abstract Expressionism” to explore more.</a></p>
         <a id='lightbox1' href="" data-lightbox="example-set" data-title=""><img id = 'url1' src="" width="100%" ></a>
-        <h3 id='artwork2'></h3>
-        <p><a id="artist2"></a></p>
+        <h3 id='artwork2'>2. Find the 2 turning points of artforms.</h3>
+        <p><a id="artist2">One shift is from Photograph to Illustrated Book during Bauhaus, the other one is from Illustrated Book to Print during Pop Art. Click on Bauhaus and Pop Art to explore more.</a></p>
         <a id='lightbox2' href="" data-lightbox="example-set-2" data-title=""><img id = 'url2'  src="" width="100%" ></a>
       </div>
       <div class="col-sm-9">
+          <p></p>
+          <p></p>
         <div id="container" style="width:100%; min-height:450px"></div>
         <svg id="bar-chart"></svg>
       </div>
@@ -159,7 +161,7 @@
         let centered = country.abbr
         var radiusScale=d3.scale.linear()
         .domain([1,19000])
-        .range([3,160]);
+        .range([3,120]);
         var bubblesDict = {};
         bubblesDict.radius=radiusScale(count);
         bubblesDict.count=count;
