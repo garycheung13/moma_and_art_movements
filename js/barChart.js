@@ -3,6 +3,7 @@ const barChart = (function () {
     let height = 900;
     let chartAreaHeight = height - 50;
     let chartAreaWidth = width - 230;
+    const AXIS_OFFET = 500;
     const sample = {
         "classification": [{
                 "count": 0,
@@ -213,28 +214,6 @@ const barChart = (function () {
         .attr("font-size", "12px")
         .attr("font-weight", "bold");
 
-    d3.selectAll(".bar")
-        .on("mouseover", function () {
-            d3.selectAll(".bar")
-                .attr("opacity", "0.4");
-            d3.select(this)
-                .attr("opacity", "1");
-            tooltip.style("display", null);
-        })
-        .on("mouseout", function () {
-            tooltip.style("display", "none");
-            d3.selectAll(".bar")
-                .attr("opacity", "1")
-        })
-        .on("mousemove", function (d) {
-            let currentBar = d3.select(this).datum();
-            tooltip.attr("transform", "translate(" + (d3.event.offsetX + 20) + "," + d3.event.offsetY + ")" );
-            tooltip.select("text")
-                .text(currentBar.count)
-                .style("fill", "white")
-                .style("font-size", "15");
-        });
-
     return {
         update: function (newData, eraName) {
             const barFill = {
@@ -251,10 +230,10 @@ const barChart = (function () {
             newData.sort(function (x, y) {
                 return d3.descending(x['count'], y['count']);
             });
-            // console.log(newData);
             xScale.domain([0, d3.max(newData, function (d) {
                 return d.count;
-            })])
+            }) + AXIS_OFFET])
+
             //transition axis
             chart.select('.x-axis')
                 .transition()
@@ -300,6 +279,28 @@ const barChart = (function () {
                 .style("display", "block");
 
             text.exit().transition().attr("opacity", 0).remove();
+
+            d3.selectAll(".bar")
+                .on("mouseover", function () {
+                    d3.selectAll(".bar")
+                        .attr("opacity", "0.4");
+                    d3.select(this)
+                        .attr("opacity", "1");
+                    tooltip.style("display", null);
+                })
+                .on("mouseout", function () {
+                    tooltip.style("display", "none");
+                    d3.selectAll(".bar")
+                        .attr("opacity", "1")
+                })
+                .on("mousemove", function (d) {
+                    let currentBar = d3.select(this).datum();
+                    tooltip.attr("transform", "translate(" + (d3.event.offsetX + 20) + "," + d3.event.offsetY + ")");
+                    tooltip.select("text")
+                        .text(currentBar.count)
+                        .style("fill", "white")
+                        .style("font-size", "15");
+                });
         }
     }
 })();
