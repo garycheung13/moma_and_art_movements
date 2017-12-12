@@ -194,7 +194,19 @@ const barChart = (function () {
         .call(xAxis);
 
     return {
-        update: function (newData) {
+        update: function (newData, eraName) {
+            const barFill = {
+                'impression': '#4188EC',
+                'cubism':'#DD433D',
+                'bauhaus':'#F5B240',
+                'surrealism':'#009C60',
+                'abstract':'#AC4BB5',
+                'minimalism':'#FF6E4E',
+                'pop':'#00ADBE',
+                'photorealism':'#9E9C3F'
+            }
+
+            console.log(barFill[eraName]);
             //sort the data
             newData.sort(function(x, y){
                 return d3.descending(x['count'], y['count']);
@@ -220,9 +232,7 @@ const barChart = (function () {
 
             bars.transition()
                 .attr("height", 10) //height of bar
-                .attr("width", function (d) {
-                    return xScale(d.count);
-                })
+                .style("fill", barFill[eraName])
                 .attr("transform", function (d, i) {
                     return "translate(0," + i * (chartAreaHeight / sample['classification'].length) + ")";
                 })
