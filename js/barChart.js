@@ -123,6 +123,11 @@ const barChart = (function () {
         ]
     }
 
+    //sort the data
+    sample['classification'].sort(function(x, y){
+        return d3.descending(x['count'], y['count']);
+    })
+
     //create the chart area
     let chart = d3.select('#bar-chart')
         .attr("width", width)
@@ -195,10 +200,14 @@ const barChart = (function () {
 
     return {
         update: function (newData) {
+            //sort the data
+            newData.sort(function(x, y){
+                return d3.descending(x['count'], y['count']);
+            });
+
             xScale.domain([0, d3.max(newData, function (d) {
                 return d.count;
             })])
-            console.log(newData);
             //transition axis
             chart.select('.x-axis')
                 .transition()
