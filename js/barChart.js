@@ -3,6 +3,7 @@ const barChart = (function () {
     let height = 900;
     let chartAreaHeight = height - 50;
     let chartAreaWidth = width - 230;
+    const AXIS_OFFET = 500;
     const sample = {
         "classification": [{
                 "count": 0,
@@ -229,10 +230,10 @@ const barChart = (function () {
             newData.sort(function (x, y) {
                 return d3.descending(x['count'], y['count']);
             });
-            // console.log(newData);
             xScale.domain([0, d3.max(newData, function (d) {
                 return d.count;
-            })])
+            }) + AXIS_OFFET])
+
             //transition axis
             chart.select('.x-axis')
                 .transition()
