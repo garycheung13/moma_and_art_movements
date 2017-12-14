@@ -176,7 +176,7 @@ const barChart = (function () {
         .data(sample['classification'])
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("height", 50) //height of bar
+        .attr("height", 50) // height of bar
         .attr("width", function (d) {
             return xScale(d.count);
         })
